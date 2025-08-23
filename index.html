@@ -1,645 +1,486 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Snow - Search Alpha Wrap 2024</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Virtuassist Solutions</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: white;
-            overflow-x: hidden;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Custom hero gradient animation */
+        .hero-gradient {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 25%, #ff6b35 50%, #e55527 75%, #ff6b35 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(circle at center, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
+        @keyframes gradientShift {
+            0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad"><stop offset="0%" stop-color="rgba(79,172,254,0.3)"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><circle cx="200" cy="300" r="2" fill="white" opacity="0.8"/><circle cx="800" cy="200" r="1" fill="white" opacity="0.6"/><circle cx="300" cy="700" r="1.5" fill="white" opacity="0.7"/><circle cx="700" cy="800" r="1" fill="white" opacity="0.5"/><circle cx="100" cy="600" r="1" fill="white" opacity="0.6"/><circle cx="900" cy="500" r="2" fill="white" opacity="0.8"/></svg>') center/cover;
-            animation: float 20s ease-in-out infinite;
-        }
-
+        /* Floating animation for objects */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0%, 100% { transform: translateY(0px) rotate(0deg);}
+            33% { transform: translateY(-10px) rotate(1deg);}
+            66% { transform: translateY(5px) rotate(-1deg);}
         }
-
-        .brand {
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 3px;
-            opacity: 0.8;
-            margin-bottom: 10px;
-            animation: fadeInUp 0.8s ease-out;
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
         }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 8rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 20px 0;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
+        /* Fade-in-up animation for content */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
         }
-
-        .section {
-            margin: 100px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
         }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .stat-card:hover::before {
-            left: 100%;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.2);
-            border-color: rgba(79, 172, 254, 0.3);
-        }
-
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            font-weight: 500;
-        }
-
-        .chart-container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-        }
-
-        .chart-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .interactive-chart {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-around;
-            height: 300px;
-            margin: 30px 0;
-            padding: 20px 0;
-        }
-
-        .chart-bar {
-            background: linear-gradient(to top, #4facfe, #00f2fe);
-            width: 80px;
-            border-radius: 10px 10px 0 0;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: growUp 1s ease-out;
-        }
-
-        @keyframes growUp {
-            from { height: 0 !important; }
-        }
-
-        .chart-bar:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
-        }
-
-        .bar-label {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .bar-value {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            font-weight: 600;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px 10px;
-            border-radius: 15px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .chart-bar:hover .bar-value {
-            opacity: 1;
-        }
-
-        .highlight-section {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 165, 0, 0.1));
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .quote {
-            font-size: 2rem;
-            font-weight: 600;
-            font-style: italic;
-            margin: 20px 0;
-            line-height: 1.4;
-        }
-
-        .progress-section {
-            margin: 60px 0;
-        }
-
-        .progress-item {
-            margin: 30px 0;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .progress-bar {
-            height: 10px;
+        /* Glassmorphism effect */
+        .glass-effect {
+            backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
-            border-radius: 5px;
-            width: 0%;
-            transition: width 1.5s ease-out;
+        /* Card hover effect */
+        .pricing-card, .feature-card, .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1rem;
         }
-
-        .recommendations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
+        .pricing-card:hover, .feature-card:hover, .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-
-        .recommendation-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
+        /* Primary button styling with hover effect */
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .recommendation-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(79, 172, 254, 0.3);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
         }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #fff, #e0e0e0);
+        /* Logo text styling */
+        .vs-logo {
+            background: linear-gradient(135deg, #ff4444 0%, #ff8833 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 800;
         }
-
-        .closing-section {
-            text-align: center;
-            padding: 80px 40px;
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
-            border-radius: 30px;
-            margin: 60px 0;
+        /* Mobile menu slide-in animation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
         }
-
-        .nav-dots {
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        /* Hide mobile menu on larger screens */
+        @media (min-width: 1024px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+         /* Simple message box for feedback */
+        #message-box {
             position: fixed;
-            right: 30px;
             top: 50%;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
             z-index: 1000;
+            display: none;
+            max-width: 90%;
+            border: 2px solid #e2e8f0;
         }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            margin: 10px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        #message-box p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #4a5568;
         }
-
-        .nav-dot.active {
-            background: #4facfe;
-            transform: scale(1.2);
+        #message-box button {
+            @apply bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300;
         }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .chart-bar {
-                width: 60px;
-            }
-            
-            .nav-dots {
-                display: none;
-            }
-            
-            .quote {
-                font-size: 1.5rem;
-            }
+        /* Custom classes from the user's code, modified to be standard Tailwind */
+        .bg-gradient-clip {
+          background: linear-gradient(to top right, #ff4694, #776fff);
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Dots -->
-    <div class="nav-dots">
-        <div class="nav-dot active" data-section="hero"></div>
-        <div class="nav-dot" data-section="overview"></div>
-        <div class="nav-dot" data-section="monthly"></div>
-        <div class="nav-dot" data-section="highlights"></div>
-        <div class="nav-dot" data-section="analytics"></div>
-        <div class="nav-dot" data-section="recommendations"></div>
-    </div>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <section id="hero" class="hero">
-            <div class="brand">SEARCH ALPHA WRAP</div>
-            <h1>Big Snow</h1>
-            <p class="tagline">2024 Year in Review</p>
-            <div class="scroll-indicator" onclick="scrollToSection('overview')">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M19 12l-7 7-7-7"/>
-                </svg>
+    <!-- Header Section -->
+    <header class="bg-white bg-opacity-80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="vs-logo text-4xl font-bold">VS</div>
+                <div class="text-2xl font-bold text-gray-800">Virtuassist Solutions</div>
             </div>
-        </section>
-
-        <!-- Overview Section -->
-        <section id="overview" class="section">
-            <h2 class="section-title">Overview</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number" data-target="404">0</div>
-                    <div class="stat-label">Average Daily Searches</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="91">0</div>
-                    <div class="stat-label">December Peak</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="9.64">0</div>
-                    <div class="stat-label">% Growth Rate</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Monthly Breakdown -->
-        <section id="monthly" class="section">
-            <h2 class="section-title">Monthly Performance</h2>
-            <div class="chart-container">
-                <div class="chart-title">Fan Searches by Month</div>
-                <div class="interactive-chart">
-                    <div class="chart-bar" style="height: 140px;" data-month="August">
-                        <div class="bar-value">70 searches</div>
-                        <div class="bar-label">August</div>
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-orange-600 font-medium">Home</a>
+                <a href="#features" class="text-gray-700 hover:text-orange-600 font-medium">Features</a>
+                <a href="#pricing" class="text-gray-700 hover:text-orange-600 font-medium">Pricing</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-orange-600 font-medium">Reviews</a>
+                <a href="#work-with-us" class="text-gray-700 hover:text-orange-600 font-medium">Work with Us</a>
+                <a href="#" class="text-gray-700 hover:text-orange-600 font-medium">Login</a>
+                <a href="#" class="btn-primary text-white px-6 py-2 rounded-full font-semibold">Sign Up</a>
+            </nav>
+            <button id="menu-button" class="lg:hidden text-gray-700 hover:text-orange-600 p-2" aria-label="Open mobile menu">
+                <!-- Hamburger Icon -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-64 h-full bg-white shadow-xl z-40 lg:hidden">
+            <div class="p-6 flex flex-col h-full">
+                <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center space-x-2">
+                        <div class="vs-logo text-2xl font-bold">VS</div>
+                        <span class="text-lg font-bold text-gray-800">Virtuassist</span>
                     </div>
-                    <div class="chart-bar" style="height: 156px;" data-month="September">
-                        <div class="bar-value">78 searches</div>
-                        <div class="bar-label">September</div>
-                    </div>
-                    <div class="chart-bar" style="height: 164px;" data-month="October">
-                        <div class="bar-value">82 searches</div>
-                        <div class="bar-label">October</div>
-                    </div>
-                    <div class="chart-bar" style="height: 166px;" data-month="November">
-                        <div class="bar-value">83 searches</div>
-                        <div class="bar-label">November</div>
-                    </div>
-                    <div class="chart-bar" style="height: 182px;" data-month="December">
-                        <div class="bar-value">91 searches (Career High!)</div>
-                        <div class="bar-label">December</div>
-                    </div>
+                    <button id="close-menu" class="text-gray-500 hover:text-gray-700" aria-label="Close mobile menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
                 </div>
-            </div>
-        </section>
-
-        <!-- Highlights Section -->
-        <section id="highlights" class="section">
-            <div class="highlight-section">
-                <h2 class="section-title">December Milestone</h2>
-                <div class="quote">"You Maintained a Daily Average of 91 Fan Searches in December"</div>
-                <p style="font-size: 1.2rem; margin-top: 20px;">
-                    Welcome to the <strong>90's Club</strong> - showcasing how deeply your fans resonate with your work.
-                </p>
-            </div>
-
-            <div class="progress-section">
-                <h3 style="font-size: 1.5rem; margin-bottom: 30px;">Growth Trajectory</h3>
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Fan Engagement</span>
-                        <span>91%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="91"></div>
-                    </div>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Growth Rate</span>
-                        <span>9.64%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="96"></div>
-                    </div>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-label">
-                        <span>Consistency Score</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="85"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Analytics Projection -->
-        <section id="analytics" class="section">
-            <h2 class="section-title">Analytics & Projections</h2>
-            <div class="chart-container">
-                <h3 style="text-align: center; margin-bottom: 20px;">January 2025 Projection</h3>
-                <div style="text-align: center; font-size: 3rem; font-weight: 800; color: #4facfe; margin: 30px 0;">
-                    156 Daily Searches
-                </div>
-                <p style="text-align: center; font-size: 1.1rem; opacity: 0.9;">
-                    If you maintain this level of engagement, you're on track to reach significant growth milestones.
-                </p>
-            </div>
-        </section>
-
-        <!-- Recommendations -->
-        <section id="recommendations" class="section">
-            <h2 class="section-title">Action Plan for 2025</h2>
-            <div class="recommendations">
-                <div class="recommendation-card">
-                    <h4 style="margin-bottom: 15px; color: #4facfe;">📱 Social Media</h4>
-                    <p>Increase your social media activity by posting regularly on all platforms.</p>
-                </div>
-                <div class="recommendation-card">
-                    <h4 style="margin-bottom: 15px; color: #4facfe;">🎯 Content Strategy</h4>
-                    <p>Diversify your content to keep your audience engaged and interested.</p>
-                </div>
-                <div class="recommendation-card">
-                    <h4 style="margin-bottom: 15px; color: #4facfe;">🔗 Resident Advisor</h4>
-                    <p>Share your Resident Advisor link more frequently to drive traffic and engagement.</p>
-                </div>
-                <div class="recommendation-card">
-                    <h4 style="margin-bottom: 15px; color: #4facfe;">📈 Brand Growth</h4>
-                    <p>Continue building your online presence with consistent, quality content.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Closing -->
-        <div class="closing-section">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Thank You, Big Snow!</h2>
-            <p style="font-size: 1.3rem; margin-bottom: 30px;">
-                You truly shined in 2024! You broke boundaries and established yourself as a figure that fans love and connect with.
-            </p>
-            <p style="font-size: 1.1rem; opacity: 0.9;">
-                <strong>Cheers to a Creative and Inspiring New Year in 2025!</strong>
-            </p>
-            <div style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
-                — With Love From the Search Alpha Team
+                <nav class="space-y-4 flex-grow">
+                    <a href="#home" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Home</a>
+                    <a href="#features" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Features</a>
+                    <a href="#pricing" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Pricing</a>
+                    <a href="#testimonials" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Reviews</a>
+                    <a href="#work-with-us" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Work with Us</a>
+                    <a href="#" class="block text-gray-700 hover:text-orange-600 font-medium py-2">Login</a>
+                    <a href="#" class="btn-primary text-white px-6 py-3 rounded-full font-semibold block mt-auto text-center">Sign Up</a>
+                </nav>
             </div>
         </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative overflow-hidden py-24 md:py-32 hero-gradient">
+            <div class="container mx-auto px-6 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 fade-in-up">
+                    Connect with the Right Talent, Instantly.
+                </h1>
+                <p class="text-lg md:text-xl font-medium max-w-3xl mx-auto mb-8 fade-in-up" style="animation-delay: 0.2s;">
+                    Virtuassist Solutions is a dynamic platform that connects clients with skilled professionals across diverse industries. We streamline collaboration and empower businesses and individuals to find the right talent for their needs.
+                </p>
+                <a href="#pricing" class="inline-block btn-primary text-white text-lg font-semibold py-3 px-8 rounded-full shadow-md fade-in-up" style="animation-delay: 0.4s;">
+                    Explore Our Solutions
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Key Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg feature-card text-center">
+                        <div class="text-orange-600 text-5xl mb-4">
+                            <!-- SVG icon for Talent Discovery -->
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10h.01M17 10h.01M19 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0112 2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Talent Discovery</h3>
+                        <p class="text-gray-600">Find the perfect professional for your project with our advanced search and filtering tools.</p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg feature-card text-center">
+                        <div class="text-orange-600 text-5xl mb-4">
+                            <!-- SVG icon for Seamless Collaboration -->
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6h1.5a1.5 1.5 0 001.5-1.5V10.5a1.5 1.5 0 00-1.5-1.5H7.5M19.5 9.75l-4.5-4.5V3a.75.75 0 011.5 0v1.125a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75V3"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Seamless Collaboration</h3>
+                        <p class="text-gray-600">Work efficiently with built-in messaging, project management, and file sharing tools.</p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg feature-card text-center">
+                        <div class="text-orange-600 text-5xl mb-4">
+                            <!-- SVG icon for Secure Payments -->
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10a2 2 0 012-2h14a2 2 0 012 2v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7zM7 14h.01M11 14h.01M15 14h.01"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8v-2a2 2 0 012-2h10a2 2 0 012 2v2"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Secure Payments</h3>
+                        <p class="text-gray-600">Our escrow system ensures that payments are secure and released only when work is completed to your satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Flexible Plans for Every Need</h2>
+                
+                <!-- Clients Pricing Section -->
+                <div class="mb-12">
+                    <h3 class="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-8">For Clients</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Client Personal Basic Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Personal Basic</h4>
+                            <p class="text-gray-500 mb-4">Ideal for individuals</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦5,600<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Client Personal Basic">Choose Plan</button>
+                        </div>
+    
+                        <!-- Client Personal Premium Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Personal Premium</h4>
+                            <p class="text-gray-500 mb-4">Unlock advanced features</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦10,600<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Client Personal Premium">Choose Plan</button>
+                        </div>
+    
+                        <!-- Client Business Basic Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Business Basic</h4>
+                            <p class="text-gray-500 mb-4">Perfect for small teams</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦10,600<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Client Business Basic">Choose Plan</button>
+                        </div>
+    
+                        <!-- Client Business Premium Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Business Premium</h4>
+                            <p class="text-gray-500 mb-4">Full suite for growing businesses</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦20,600<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Client Business Premium">Choose Plan</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Professionals Pricing Section -->
+                <div>
+                    <h3 class="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-8">For Professionals</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Professional Personal Basic Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Personal Basic</h4>
+                            <p class="text-gray-500 mb-4">Start your career journey</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦3,400<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Professional Personal Basic">Choose Plan</button>
+                        </div>
+    
+                        <!-- Professional Personal Premium Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Personal Premium</h4>
+                            <p class="text-gray-500 mb-4">Boost your visibility</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦7,400<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Professional Personal Premium">Choose Plan</button>
+                        </div>
+    
+                        <!-- Professional Business Basic Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Business Basic</h4>
+                            <p class="text-gray-500 mb-4">For professional teams</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦7,400<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Professional Business Basic">Choose Plan</button>
+                        </div>
+    
+                        <!-- Professional Business Premium Card -->
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center pricing-card">
+                            <h4 class="text-2xl font-bold text-orange-600 mb-2">Business Premium</h4>
+                            <p class="text-gray-500 mb-4">Scale your enterprise</p>
+                            <p class="text-4xl font-extrabold text-gray-900 mb-6">₦14,400<span class="text-lg font-normal text-gray-500"> / 3 months</span></p>
+                            <button class="btn-primary w-full py-3" data-plan="Professional Business Premium">Choose Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">What Our Users Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonial Card 1 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg testimonial-card">
+                        <p class="text-gray-600 italic mb-4">"Virtuassist Solutions made it so easy to find a talented graphic designer for my project. The platform is intuitive, and the collaboration tools are excellent."</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/40x40/f7931e/ffffff?text=JN" alt="Jane N." class="rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Jane N.</h4>
+                                <p class="text-sm text-gray-500">Startup Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg testimonial-card">
+                        <p class="text-gray-600 italic mb-4">"As a freelance writer, finding consistent work can be tough. Since joining Virtuassist, my client base has grown significantly. Highly recommend!"</p>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/40x40/ff6b35/ffffff?text=DO" alt="David O." class="rounded-full mr-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">David O.</h4>
+                                <p class="text-sm text-gray-500">Freelance Writer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work with us Section -->
+        <section id="work-with-us">
+            <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center" onerror="this.onerror=null;this.src='https://placehold.co/2830x1500/111827/ffffff?text=Work+with+Us';" />
+              <div aria-hidden="true" class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
+                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="w-[274.25rem] aspect-[1097/845] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"></div>
+              </div>
+              <div aria-hidden="true" class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:-top-112 sm:ml-16 sm:translate-x-0">
+                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="w-[274.25rem] aspect-[1097/845] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"></div>
+              </div>
+              <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl lg:mx-0">
+                  <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Work with us</h2>
+                  <p class="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">Virtuassist Solutions is a dynamic platform that connects clients with skilled professionals across diverse industries. We streamline collaboration and empower businesses and individuals to find the right talent for their needs.</p>
+                </div>
+                <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+                  <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                    <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
+                    <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
+                    <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
+                    <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+                  </div>
+                  <dl id="stats-section" class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="flex flex-col-reverse gap-1">
+                      <dt class="text-base/7 text-gray-300">Major Partners</dt>
+                      <dd data-target="50" class="counter text-4xl font-semibold tracking-tight text-white">0</dd>
+                    </div>
+                    <div class="flex flex-col-reverse gap-1">
+                      <dt class="text-base/7 text-gray-300">Processed Jobs</dt>
+                      <dd data-target="25000" class="counter text-4xl font-semibold tracking-tight text-white">0</dd>
+                    </div>
+                    <div class="flex flex-col-reverse gap-1">
+                      <dt class="text-base/7 text-gray-300">Available Countries</dt>
+                      <dd data-target="15" class="counter text-4xl font-semibold tracking-tight text-white">0</dd>
+                    </div>
+                    <div class="flex flex-col-reverse gap-1">
+                      <dt class="text-base/7 text-gray-300">Satisfied Clients</dt>
+                      <dd data-target="1000" class="counter text-4xl font-semibold tracking-tight text-white">0</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-6 text-center">
+                <h5 class="text-2xl font-bold mb-2">Virtuassist Solutions</h5>
+                <p class="text-sm text-gray-400">Company Email: Virtuassist.Solutions1@gmail.com</p>
+                <p class="text-sm text-gray-400">Company Number: +2347071935043</p>
+                <p class="text-sm text-gray-400">Company Address: Lagos, Nigeria</p>
+                <p class="mt-4 text-sm text-gray-500">&copy; 2025 Search Alpha Labs. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Simple Message Box for Feedback -->
+    <div id="message-box">
+        <p id="message-text"></p>
+        <button id="close-button">OK</button>
     </div>
 
+    <!-- JavaScript for button functionality, mobile menu, and counter animation -->
     <script>
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle functionality
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenuButton = document.getElementById('close-menu');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters
-                    const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(animateCounter);
-                    
-                    // Animate progress bars
-                    const progressBars = entry.target.querySelectorAll('.progress-fill');
-                    progressBars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        setTimeout(() => {
-                            bar.style.width = width + '%';
-                        }, 500);
-                    });
-                }
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
             });
-        }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Counter animation
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    element.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-            }, 16);
-        }
-
-        // Smooth scrolling
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
+            closeMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
             });
-        }
 
-        // Navigation dots
-        const navDots = document.querySelectorAll('.nav-dot');
-        const sections = document.querySelectorAll('section');
+            // Close mobile menu on link click and handle smooth scrolling
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
 
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionId = entry.target.id;
-                    navDots.forEach(dot => {
-                        dot.classList.remove('active');
-                        if (dot.getAttribute('data-section') === sectionId) {
-                            dot.classList.add('active');
+            // Pricing button functionality
+            const pricingButtons = document.querySelectorAll('.pricing-card .btn-primary');
+            const messageBox = document.getElementById('message-box');
+            const messageText = document.getElementById('message-text');
+            const closeButton = document.getElementById('close-button');
+
+            pricingButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const plan = button.getAttribute('data-plan');
+                    messageText.textContent = `You have chosen the ${plan} Plan! We'll reach out shortly.`;
+                    messageBox.style.display = 'block';
+                });
+            });
+
+            closeButton.addEventListener('click', () => {
+                messageBox.style.display = 'none';
+            });
+
+            // Counter animation functionality using IntersectionObserver
+            const counterSection = document.getElementById('stats-section');
+            let counterAnimationTriggered = false;
+
+            const animateCounter = (element) => {
+                const target = parseInt(element.getAttribute('data-target'), 10);
+                let current = 0;
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // ~60 FPS
+
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        element.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                        // Add a plus sign to the Processed Jobs number
+                        if (element.getAttribute('data-target') === '25000') {
+                            element.textContent = '25,000+';
                         }
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
+                    }
+                };
+                requestAnimationFrame(updateCounter);
+            };
 
-        sections.forEach(section => {
-            navObserver.observe(section);
-        });
-
-        navDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const sectionId = dot.getAttribute('data-section');
-                scrollToSection(sectionId);
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !counterAnimationTriggered) {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => animateCounter(counter));
+                        counterAnimationTriggered = true;
+                        // Stop observing after the animation has been triggered
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the element is visible
             });
-        });
 
-        // Chart bar interactions
-        document.querySelectorAll('.chart-bar').forEach(bar => {
-            bar.addEventListener('click', () => {
-                const month = bar.getAttribute('data-month');
-                alert(`${month} details: Click to see more analytics for this month!`);
-            });
+            if (counterSection) {
+                observer.observe(counterSection);
+            }
         });
     </script>
 </body>
