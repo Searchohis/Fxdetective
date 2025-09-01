@@ -282,11 +282,71 @@
             font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.7);
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 48px auto;
             line-height: 1.5;
             font-weight: 400;
             position: relative;
             z-index: 1;
+        }
+        
+        .hero-cta-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        
+        .hero-cta-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1e293b;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-cta-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-intelligence-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .product-intelligence-badge:hover {
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .badge-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+        
+        .badge-arrow {
+            font-size: 1.2rem;
+            opacity: 0.7;
         }
         
         .trusted-by {
@@ -850,6 +910,14 @@
         <div class="container">
             <h1>Your search authority's new collaborator</h1>
             <p class="subtitle">Unleash Search Alpha's power directly in your dashboard. Monitor search presence instantly. Turn complex SEO workflows into a single click. Your brand. Your authority. Your search results, evolving at thought speed.</p>
+            
+            <div class="hero-cta-container">
+                <button class="hero-cta-button">Start building</button>
+                <div class="product-intelligence-badge">
+                    <span class="badge-text"><strong>New:</strong> Product Intelligence</span>
+                    <span class="badge-arrow">›</span>
+                </div>
+            </div>
         </div>
     </section>
 
