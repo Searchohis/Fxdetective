@@ -1,232 +1,1160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta name="description" content="Unleash the power of data-driven success with Search Alpha, your ultimate partner in the world of music. Our innovative suite of services includes dynamic social tools for enhanced online presence, seamless notability development for meaningful discussions, targeted label pitching to navigate the industry, and personalized artist pitching to unlock unparalleled opportunities. Join Search Alpha and amplify your music career where innovation meets artistic brilliance!">
-  <meta content="Empowering the business of music" property="og:title">
-  <meta content="Unleash the power of data-driven success with Search Alpha, your ultimate partner in the world of music. Our innovative suite of services includes dynamic social tools for enhanced online presence, seamless notability development for meaningful discussions, targeted label pitching to navigate the industry, and personalized artist pitching to unlock unparalleled opportunities. Join Search Alpha and amplify your music career where innovation meets artistic brilliance!" property="og:description">
-  <meta content="https://searchalpha.org/logo.jpg" property="og:image">
-  <meta name="color-scheme" content="dark">
-  <title>SearchAlpha</title>
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="screen-size.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  
-  <link rel="shortcut icon" href="https://searchalpha.org/logo2.jpg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Alpha: Search Authority at Dashboard Speed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Roboto, sans-serif;
+            line-height: 1.6;
+            color: white;
+            background: radial-gradient(ellipse at bottom right, #2563eb 0%, #1d4ed8 20%, #1e293b 45%, #0f172a 65%, #020617 85%, #000000 100%);
+            font-size: 16px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.5) 0%, rgba(29, 78, 216, 0.3) 25%, rgba(15, 23, 42, 0.2) 50%, transparent 75%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(2, 6, 23, 0.7) 30%, rgba(15, 23, 42, 0.4) 50%, transparent 75%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Headers use Inter font */
+        h1, h2, h3, h4, .logo {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Subtitle and description texts use DM Sans */
+        .subtitle, .video-description, .features-header p, .case-study-text p, p.description {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 400;
+        }
+        
+        /* Glassmorphism Header */
+        .glassmorphism {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            border-radius: 50px;
+            padding: 12px 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 46px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .get-started {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            padding: 8px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .get-started:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #3b82f6, #0066cc);
+        }
+        
+        .get-started::after {
+            display: none;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .hamburger-line {
+            width: 24px;
+            height: 2px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+        
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 90px;
+            left: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            z-index: 999;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.2s;
+        }
+        
+        .mobile-nav a:hover {
+            color: white;
+        }
+        
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav .get-started {
+            margin-top: 16px;
+            text-align: center;
+            display: block;
+            border-bottom: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 80px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 800px;
+            margin: 0 auto 48px auto;
+            line-height: 1.5;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-cta-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        
+        .hero-cta-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1e293b;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-cta-button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-intelligence-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .product-intelligence-badge:hover {
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .badge-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+        
+        .badge-arrow {
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+        
+        .trusted-by {
+            margin-top: 60px;
+            color: #999;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .company-logos {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 24px;
+            opacity: 0.6;
+        }
+        
+        .company-logo {
+            width: 120px;
+            height: 40px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+        }
+        
+        .video-section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .video-description {
+            text-align: center;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 800px;
+            margin: 0 auto 48px auto;
+            line-height: 1.6;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+        }
+        
+        .features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .features-header h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .features-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 64px;
+            margin-bottom: 100px;
+        }
+        
+        .feature-card {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .feature-list li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: white;
+        }
+        
+        /* Case Study Section */
+        .case-study-section {
+            padding: 40px 0;
+        }
+        
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .case-study-text h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+        
+        .case-study-text p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        
+        .segmented-control {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 4px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .segment-option {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .segment-option.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .case-study-image {
+            width: 100%;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        /* Use Cases Section */
+        .use-cases-section {
+            padding: 100px 0;
+        }
+        
+        .use-cases-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .use-cases-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+        }
+        
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+        }
+        
+        .use-case-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .use-case-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .use-case-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .use-case-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+        }
+        
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .testimonials-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .testimonial-company {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            padding: 100px 0;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .pricing-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 32px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .pricing-card.popular {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .pricing-card.popular::before {
+            content: "Most Popular";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(59, 130, 246, 0.9);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-card .price-period {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+        
+        .pricing-card .description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        
+        .pricing-cta {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .pricing-cta:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            color: white;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 64px;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .hero {
+                padding: 140px 0 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-<div class="main">
-  <header class="header">
-    <a href="" class="title">
-      <img src="logo2.jpg" alt="SearchAlpha logo">
-      <h1>Search<span>Alpha</span></h1>
-    </a>
-    <div class="navbar"><i class="fa fa-align-right"></i></div>
-  </header>
-  
-  <div class="togglesection" id="togglesection">
-    <div class="toggle-navs">
-      <a href="#section1">Home</a>
-      <a href="#section2">About</a>
-      <a href="#section3">Services</a>
-      <a href="">Press</a>
-      <a href="#section5">Newsletter</a>
-    </div>
-  </div>
-
-  <section class="opening-section" id="section1">
-    <div class="nav">
-      <div class="nav-list"><a href="#section1">Home</a></div>
-      <div class="nav-list"><a href="#section3">Services <i class="fa fa-angle-down"></i></a></div>
-      <div class="nav-list"><a href="#section2">About</a></div>
-      <div class="nav-list"><a href="">Pricing <i class="fa fa-angle-down"></i></a></div>
-      <div class="nav-list"><a href="">Control Centre</a></div>
-    </div>
-    <div class="nav-main">
-      <a href="Artist.html">Artist</a>
-      <a href="https://instagram.com/searchalpha?igshid=MTk0NTkyODZkYg%3D%3D&utm_source=qr" class="oo">Promoter</a>
-    </div>
-    <div class="opening-section">
-      <div class="opening1">
-        <div class="opening-write">
-          <h3>Empowering the</h3>
-          <h1>Business of music</h1>
+    <!-- Glassmorphism Header -->
+    <header class="header glassmorphism">
+        <div class="nav">
+            <div class="logo-container">
+                <div class="logo-icon">SA</div>
+                <div class="logo">Search Alpha</div>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#">Learn More</a>
+                <a href="#">Blog</a>
+                <a href="#">New Updates</a>
+                <a href="#" class="get-started">Get Started</a>
+            </div>
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
         </div>
-        <a href="https://zz51i8abo5r.typeform.com/to/v7iMFjXd">Request Access <i class="fa fa-angles-up"></i></a>
-      </div>
-      <div class="opening2">
-        <div class="opening">
-          <div class="imgg fade">
-            <img src="Minimalist Business Plan Cover Page.JPG" alt="Minimalist Business Plan Cover Page">
-          </div>
-          <div class="imgg fade">
-            <img src="Minimalist Business Plan Cover Page (1).JPG" alt="Second Minimalist Business Plan Cover Page">
-          </div>
+    </header>
+    
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#">Learn More</a>
+        <a href="#">Blog</a>
+        <a href="#">New Updates</a>
+        <a href="#" class="get-started">Get Started</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your search authority's new collaborator</h1>
+            <p class="subtitle">Unleash Search Alpha's power directly in your dashboard. Monitor search presence instantly. Turn complex SEO workflows into a single click. Your brand. Your authority. Your search results, evolving at thought speed.</p>
+            
+            <div class="hero-cta-container">
+                <button class="hero-cta-button">Start building</button>
+                <div class="product-intelligence-badge">
+                    <span class="badge-text"><strong>New:</strong> Product Intelligence</span>
+                    <span class="badge-arrow">›</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="about-section" id="section2">
-    <div class="about">
-      <div class="about-title">
-        <img src="logo2.jpg" alt="SearchAlpha logo">
-        <h2>About Searchalpha</h2>
-      </div>
-      <p>Welcome! Let’s Get You Started.We’re proud to be working alongside Google to help both independent and non-independent artists claim their name rights, show up prominently on search to fans, followers, and record labels, and build income by establishing themselves as notable public figures.</p>
-      <a href="https://photos.google.com/share/AF1QipMOXrdfaTHLorZ-9vRQjV9fr7N56poMJgoICo9cjE_Fqf_vLiqotsQhAAhsstg5QQ?key=SktVdTI5alQtdVlRa2YxR1kxUHRnMlV5dURVV0ZR" class="btn-danger">Check Case Study <i class="fa fa-arrow-right"></i></a>
-    </div>
-    <div class="about-img">
-      <div class="img-carousel">
-        <div class="carousel"><img src="searchalpha1.jpg" alt="SearchAlpha Case Study 1"></div>
-        <div class="carousel"><img src="searchalpha2.jpg" alt="SearchAlpha Case Study 2"></div>
-        <div class="carousel"><img src="searchalpha3.jpg" alt="SearchAlpha Case Study 3"></div>
-        <div class="carousel"><img src="searchalpha4.jpg" alt="SearchAlpha Case Study 4"></div>
-        <div class="carousel"><img src="searchalpha5.jpg" alt="SearchAlpha Case Study 5"></div>
-        <div class="carousel"><img src="searchalpha6.jpg" alt="SearchAlpha Case Study 6"></div>
-        <div class="carousel"><img src="searchalpha7.jpg" alt="SearchAlpha Case Study 7"></div>
-        <div class="carousel"><img src="searchalpha8.jpg" alt="SearchAlpha Case Study 8"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="services-section" id="section3">
-    <div class="service-title">
-      <div class="subtitle"><h3>ALL-IN-<span>ONE PLatform</span></h3></div>
-    </div>
-    <div class="detail-paragaph"><marquee behavior="" direction="left">Empower your business with our robust suite of services</marquee></div>
-    <div class="services" id="services">
-      <div class="service" id="servicee4"><i class="fa fa-code hey"></i><h3>Panel Development</h3><p>Build up of knowledge panels to help music creatives appear notable on search to help increase amount of followers and potential business opportunities.</p><button><i class="fa fa-arrow-up"></i></button></div>
-      <div class="service" id="servicee1"><i class="fa fa-bar-chart hey"></i><h3>Label Pitching</h3><p>Navigate the competitive music industry landscape with confidence using Search Alpha's label pitching service. Showcase your work to industry-leading labels....</p><button><i class="fa fa-arrow-up"></i></button></div>
-      <div class="service" id="servicee2"><i class="fa fa-feed hey"></i><h3>Artist pitching</h3><p>Connect with the right opportunities and amplify your music career through Search Alpha's artist pitching service. Tailored to your unique style and goals, our .....</p><button><i class="fa fa-arrow-up"></i></button></div>
-      <div class="service" id="servicee3"><i class="fa fa-music hey"></i><h3>Social Tools</h3><p>Elevate your online presence with Search Alpha's advanced social tools. Seamlessly integrate across platforms, and analyze performance metrics to maximize engagement...</p><button><i class="fa fa-arrow-up"></i></button></div>
-    </div>
-  </section>
-
-  <section class="review-section" id="section4">
-    <div class="service-title"><div class="subtitle"><h3>skyrocketing to <span>the top</span></h3></div></div>
-    <div class="detail-paragaph"><p>What searchalpha users have to say about us</p></div>
-    <div class="reviews">
-      <div class="review" id="review1">
-        <div class="review-title">
-          <img src="WhatsApp Image 2023-11-23 at 06.22.17_57e7f993.jpg" alt="Restlezz review photo">
-          <div class="review-Tt"><h4>Artist and producer</h4><h3>Restlezz</h3><h1><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></h1></div>
+    <!-- Case Study Section -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-content">
+                <div class="case-study-text">
+                    <div class="segmented-control">
+                        <button class="segment-option active" onclick="toggleCaseStudy('before')">Before</button>
+                        <button class="segment-option" onclick="toggleCaseStudy('after')">After</button>
+                    </div>
+                </div>
+                <div class="case-study-image" id="caseStudyImage">
+                    Before Build-up Image Placeholder
+                </div>
+            </div>
         </div>
-        <p><i class="fa fa-quote-left"></i> Search Alpha has been instrumental in my growth skyrocketing my notability to the next level and notability is very beneficial for any Artist “BELIEVE THAT”RestlezzMusical Artist and Entrepreneur <i class="fa fa-quote-right"></i></p>
-        <a href="https://instagram.com/restlezzgrind?igshid=MTk0NTkyODZkYg==">View case study <i class="fa fa-arrow-right"></i></a>
-      </div>
-      <div class="review" id="review2">
-        <div class="review-title">
-          <img src="WhatsApp Image 2023-11-23 at 06.30.29_acac6c81.jpg" alt="Just Ajura review photo">
-          <div class="review-Tt"><h4>Artist</h4><h3>Just Ajura</h3><h1><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></h1></div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2>Search authority, from concept to conversion</h2>
+            <p class="video-description">Watch as Search Alpha tackles unfamiliar brand presence, builds new authority signals, creates monitoring systems, and fixes what's broken—all from your dashboard. See what search optimization feels like when you're not doing it alone.</p>
+            <div class="video-placeholder">
+                <div class="play-button">▶</div>
+            </div>
         </div>
-        <p><i class="fa fa-quote-left"></i>In the business of music to ensure longetivity you need to have a reputation online to build your notabilitythanks to searchalpha I do <i class="fa fa-quote-right"></i></p>
-        <a href="https://instagram.com/ajuraofficial?igshid=MTk0NTkyODZkYg==">View case study <i class="fa fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="users-section" id="section5">
-    <div class="user-title">
-      <h3>Registered <span>Users</span> <i class="fa fa-user-circle"></i></h3>
-      <p>Take a look at our worldwide user database filled with registered artist and labels from around the globe.</p>
-    </div>
-    <div class="user-number"><span>1</span><span>1</span><span>2</span><span>3</span></div>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSehDhqqpClIztFPlwObd_nQG2ezEjcFaGNiWzPZw26WQynQ_g/viewform?usp=pp_url" class="oo">Sign up as Artist <i class="fa fa-arrow-right"></i></a>
-  </section>
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="features-header">
+                <h2>Search authority at dashboard velocity</h2>
+                <p>Search Alpha embeds advanced SEO intelligence right in your dashboard. It has deep search awareness and the ability to monitor and optimize your presence across all major search engines.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Powerful intelligence</h3>
+                    <ul class="feature-list">
+                        <li>Uses advanced algorithms to understand your entire search presence without manual setup</li>
+                        <li>Makes coordinated optimizations across multiple platforms</li>
+                        <li>Optimized specifically for search authority building and monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Works where you work</h3>
+                    <ul class="feature-list">
+                        <li>Lives right inside your dashboard—no context switching</li>
+                        <li>Integrates with major platforms and analytics tools</li>
+                        <li>Leverages your existing content and optimization systems</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>You're in control</h3>
+                    <ul class="feature-list">
+                        <li>Never modifies your presence without explicit approval</li>
+                        <li>Adapts to your brand standards and content patterns</li>
+                        <li>Configurable; build custom workflows and automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="newsletter" id="section6">
-    <h3>Subscribe to <span>our newsletter</span> <i class="fa fa-envelope"></i></h3>
-    <div class="letter-box" id="letter-box">
-      <div class="letter">
-        <form action="" method="post">
-          <input type="text" placeholder="info@searchalpha.org">
-          <button><i class="fa fa-telegram"></i></button>
-        </form>
-      </div>
-      <p>Subscribe to our newsletter and get juicy updates on price changes and other alterations</p>
-    </div>
-  </section>
+    <!-- Use Cases Section -->
+    <section class="use-cases-section">
+        <div class="container">
+            <div class="use-cases-header">
+                <h2>What could you do with Search Alpha?</h2>
+            </div>
+            
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <h3>Brand monitoring</h3>
+                    <p>Search Alpha maps and explains your entire search presence in seconds. It monitors your brand mentions and authority signals across all major search engines without manual tracking.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Authority building</h3>
+                    <p>Stop managing multiple platforms separately. Search Alpha integrates with major search engines and social platforms to build comprehensive authority profiles—all from your dashboard while you focus on creating.</p>
+                </div>
+                
+                <div class="use-case-card">
+                    <h3>Content optimization</h3>
+                    <p>Search Alpha's understanding of search algorithms and trends enables it to make powerful, multi-platform optimizations that actually improve your rankings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="sponsor-section">
-    <div class="sponsor-title">
-      <h3><span>certifications <i class="fa fa-medal"></i></span></h3>
-      <marquee behavior="smooth" direction="left">A few of our certifications</marquee>
-    </div>
-    <div class="sponsors">
-      <div class="sponsor"><img src="c2.JPG" alt="Certification 2"></div>
-      <div class="sponsor"><img src="c3.JPG" alt="Certification 3"></div>
-      <div class="sponsor"><img src="C1.JPG" alt="Certification 1"></div>
-      <div class="sponsor"><img src="c5.JPG" alt="Certification 5"></div>
-    </div>
-  </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-header">
+                <h2>What creatives say about Search Alpha</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Search Alpha has dramatically accelerated our brand's search presence. I can now monitor our entire digital footprint—tracking mentions, building authority, and optimizing content with comprehensive analytics—and then ask Search Alpha to create automated workflows. This process saves 1-2 days of routine work per campaign.
+                    </div>
+                    <div class="testimonial-author">Sarah Martinez</div>
+                    <div class="testimonial-company">Independent Music Producer</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Search Alpha marks a breakthrough for creators managing their online presence. It enables us to build authority we wouldn't have had bandwidth for—from knowledge panels to comprehensive search optimization. Its ability to handle complex, multi-platform tasks sets it apart. Search Alpha is fundamentally changing what's possible for creative professionals.
+                    </div>
+                    <div class="testimonial-author">Jake Thompson</div>
+                    <div class="testimonial-company">Singer-Songwriter & Digital Strategist</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="section5" id="section7">
-    <h3>Frequently Asked <span>Questions (FAQ's)</span></h3>
-    <div class="questions">
-      <div class="question">
-        <div class="titles"><h4>Are your prices affordable?</h4><span><i class="fa fa-angle-down"></i></span></div>
-        <div class="text" id="text1">We offer the best payment plans at a very affordable rate that provide the best values for our services</div>
-      </div>
-      <div class="question">
-        <div class="titles"><h4>Where is your headquater?</h4><span><i class="fa fa-angle-down"></i></span></div>
-        <div class="text" id="text2">We are located worldwide but you can easily contact us through our webpage and social media handles</div>
-      </div>
-      <div class="question">
-        <div class="titles"><h4>Example of google add-ons?</h4><span><i class="fa fa-angle-down"></i></span></div>
-        <div class="text" id="text3">Google panels and advertisemnt is a great example</div>
-      </div>
-      <div class="question">
-        <div class="titles"><h4>How long does the panel take?</h4><span><i class="fa fa-angle-down"></i></span></div>
-        <div class="text" id="text4">Depending on the details mostly 3-7 days</div>
-      </div>
-      <div class="question">
-        <div class="titles"><h4>Are you truly the best?</h4><span><i class="fa fa-angle-down"></i></span></div>
-        <div class="text" id="text6">We offer the best services and provide greatsocial media boost and value</div>
-      </div>
-    </div>
-  </section>
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <h2>Get started with Search Alpha</h2>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$17</div>
+                    <div class="price-period">Per month with annual discount; $200 billed up front. $20 if billed monthly.</div>
+                    <div class="description">Perfect for individual creators starting their search authority journey with essential monitoring tools.</div>
+                    <button class="pricing-cta">Get Started</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <h3>Pro</h3>
+                    <div class="price">$100</div>
+                    <div class="price-period">Per person billed monthly</div>
+                    <div class="description">Great value for professionals building comprehensive search presence with advanced analytics and automation.</div>
+                    <button class="pricing-cta">Get Started</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Business</h3>
+                    <div class="price">$200</div>
+                    <div class="price-period">Per person billed monthly</div>
+                    <div class="description">Maximum power for agencies and power users with unlimited access to all advanced features and priority support.</div>
+                    <button class="pricing-cta">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="footer-section" id="section8">
-    <div class="footer-content">
-      <div class="footer-title">
-        <img src="logo2.jpg" alt="SearchAlpha logo">
-        <h2>Searchalpha</h2>
-        <p>Empowering the business of notability</p>
-      </div>
-      <div class="footer-links">
-        <ul>
-          <li><a href="">Pricing</a></li>
-          <li><a href="">Social media</a></li>
-          <li><a href="">Boosting</a></li>
-          <li><a href="">Partners</a></li>
-          <li><a href="">Trading</a></li>
-          <li><a href="">Metaverse</a></li>
-          <li><a href="">Policies</a></li>
-          <li><a href="">Terms and Conditions</a></li>
-        </ul>
-      </div>
-      <div class="footer-icons">
-        <a href="https://instagram.com/searchalpha?igshid=MTk0NTkyODZkYg%3D%3D&utm_source=qr"><i class="fa fa-instagram"></i></a>
-      </div>
-      <div class="footer-paragrapgh"><p>copyright &COPY; searchalpha 2024</p></div>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">API</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Community</a>
+                    <a href="#">Status</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">GDPR</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Search Alpha. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <div class="fixed-nav">
-    <div id="myBtn"><i class="fa fa-arrow-up"></i></div>
-  </div>
-</div>
-
-<script src="script.js"></script>
-<script src="scrollreveal.min.js.download"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/82b9340beb.js" crossorigin="anonymous"></script>
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            
+            mobileNav.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        }
+        
+        // Case study toggle
+        function toggleCaseStudy(type) {
+            const image = document.getElementById('caseStudyImage');
+            const buttons = document.querySelectorAll('.segment-option');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (type === 'before') {
+                image.textContent = 'Before Build-up Image Placeholder';
+            } else {
+                image.textContent = 'After Build-up Image Placeholder';
+            }
+        }
+        
+        // Close mobile menu when clicking on links
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileNav = document.getElementById('mobileNav');
+                const mobileToggle = document.querySelector('.mobile-menu-toggle');
+                
+                mobileNav.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
