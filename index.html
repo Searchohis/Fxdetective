@@ -1,32 +1,269 @@
-.case-study-image {
-    width: 100%;
-    max-width: 550px; /* wider, more natural screenshot size */
-    height: auto;     /* let image define height */
-    aspect-ratio: 9/16; /* ensures nice portrait ratio */
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-    margin: 0 auto;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Alpha: Search Authority at Dashboard Speed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.case-study-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* fill container like a real screenshot */
-    border-radius: 20px;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Roboto, sans-serif;
+            line-height: 1.6;
+            color: white;
+            background: radial-gradient(ellipse at bottom right, #2563eb 0%, #1d4ed8 20%, #1e293b 45%, #0f172a 65%, #020617 85%, #000000 100%);
+            font-size: 16px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-/* Mobile fix */
-@media (max-width: 768px) {
-    .case-study-image {
-        max-width: 100%;
-        aspect-ratio: 9/16;
-        height: auto;
-    }
-}
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.5) 0%, rgba(29, 78, 216, 0.3) 25%, rgba(15, 23, 42, 0.2) 50%, transparent 75%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(2, 6, 23, 0.7) 30%, rgba(15, 23, 42, 0.4) 50%, transparent 75%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Headers use Inter font */
+        h1, h2, h3, h4, .logo {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Subtitle and description texts use DM Sans */
+        .subtitle, .video-description, .features-header p, .case-study-text p, p.description {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 400;
+        }
+
+        /* Glassmorphism Header */
+        .glassmorphism {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            border-radius: 50px;
+            padding: 12px 24px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 46px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 94px;
+            height: 94px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .get-started {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            padding: 8px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .get-started:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #3b82f6, #0066cc);
+        }
+
+        .get-started::after {
+            display: none;
+        }
+
+        /* Case Study Section */
+        .case-study-section {
+            padding: 80px 0;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .case-study-text h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .case-study-text p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .case-study-image {
+            width: 100%;
+            max-width: 550px; /* wider, more natural screenshot size */
+            height: auto;     /* let image define height */
+            aspect-ratio: 9/16; /* ensures nice portrait ratio */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            margin: 0 auto;
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* fill container like a real screenshot */
+            border-radius: 20px;
+        }
+
+        /* Mobile fix */
+        @media (max-width: 768px) {
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
+
+            .case-study-image {
+                max-width: 100%;
+                aspect-ratio: 9/16;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Glassmorphism Header -->
+    <header class="header glassmorphism">
+        <div class="nav">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" alt="Search Alpha Logo">
+                </div>
+                <div class="logo">Search Alpha</div>
+            </div>
+
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#">Learn More</a>
+                <a href="#">Blog</a>
+                <a href="#">New Updates</a>
+                <a href="#" class="get-started">Get Started</a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
