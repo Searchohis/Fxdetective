@@ -404,7 +404,7 @@
         
         .case-study-image {
             width: 100%;
-            max-width: 380px;
+            max-width: 550px;
             height: auto;
             aspect-ratio: 9/16;
             background: rgba(255, 255, 255, 0.05);
@@ -417,7 +417,7 @@
             overflow: hidden;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
             margin: 0 auto;
-            padding: 2px;
+            padding: 20px;
         }
         
         .case-study-image img {
@@ -827,19 +827,16 @@
             }
             
             .case-study-content {
-    display: grid;
-    grid-template-columns: 1fr 380px; /* Change from 550px to 380px */
-    gap: 80px;
-    align-items: center;
-    margin-bottom: 80px;
-}
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+            }
             
             .case-study-image {
-    width: 380px; /* Force exact width instead of max-width */
-    /* ... rest stays the same ... */
+                max-width: 100%;
                 aspect-ratio: 9/16;
                 height: auto;
-                padding: 2px;
+                padding: 8px;
             }
             
             .use-cases-grid {
