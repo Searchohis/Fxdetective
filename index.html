@@ -827,13 +827,16 @@
             }
             
             .case-study-content {
-                grid-template-columns: 1fr;
-                gap: 48px;
-                text-align: center;
-            }
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Change from 550px to 380px */
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 80px;
+}
             
             .case-study-image {
-                max-width: 100%;
+    width: 380px; /* Force exact width instead of max-width */
+    /* ... rest stays the same ... */
                 aspect-ratio: 9/16;
                 height: auto;
                 padding: 2px;
