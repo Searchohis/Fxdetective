@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Alpha: Search Authority at Dashboard Speed</title>
-    <meta name="description" content="Search Alpha embeds advanced SEO intelligence right in your dashboard to monitor and optimize your search presence">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -306,7 +305,7 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 极 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             margin-bottom: 24px;
             display: block;
             margin-left: auto;
@@ -350,7 +349,7 @@
             opacity: 0.7;
         }
         
-        /* Case Study Section - Fixed */
+        /* Case Study Section */
         .case-study-section {
             padding: 80px 0;
         }
@@ -398,29 +397,34 @@
         }
         
         .segment-option.active {
-            background: rgba(255, 255, 255, 极.15);
+            background: rgba(255, 255, 255, 0.15);
             color: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
-        /* REMOVED the glassmorphism container styles */
         .case-study-image {
             width: 100%;
             max-width: 550px;
             height: auto;
             aspect-ratio: 9/16;
-            /* Removed all glassmorphism styling */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
             margin: 0 auto;
+            padding: 20px;
         }
         
         .case-study-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px; /* Added a slight rounding for better appearance */
+            border-radius: 20px;
         }
         
         /* Video Section */
@@ -438,7 +442,7 @@
         
         .video-description {
             text-align: center;
-           极 font-size: 1.1rem;
+            font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.7);
             max-width: 800px;
             margin: 0 auto 48px auto;
@@ -458,7 +462,6 @@
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
         }
         
         .play-button {
@@ -476,7 +479,7 @@
         }
         
         .play-button:hover {
-            background: rgba极(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
         }
         
@@ -501,7 +504,7 @@
         .features-header p {
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.7);
-            max-width: 极00px;
+            max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -605,7 +608,7 @@
         
         /* Testimonials Section */
         .testimonials-section {
-            padding: 100极 0;
+            padding: 100px 0;
         }
         
         .testimonials-header {
@@ -617,10 +620,10 @@
             font-size: 2.5rem;
             font-weight: 600;
             color: white;
-           极 margin-bottom: 24px;
+            margin-bottom: 24px;
         }
         
-        .极timonials-grid {
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 48px;
@@ -630,7 +633,7 @@
             background: rgba(255, 255, 255, 0.05);
             padding: 40px;
             border-radius: 12px;
-            border: 1极 solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
@@ -664,7 +667,7 @@
         }
         
         .pricing-header {
-            text-align:极 center;
+            text-align: center;
             margin-bottom: 80px;
         }
         
@@ -677,7 +680,7 @@
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1极);
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
         
@@ -799,119 +802,6 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
-        /* Video Modal */
-        .video-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-        }
-        
-        .modal-content {
-            position: relative;
-            background-color: #0f172a;
-            margin: 5% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 8px;
-        }
-        
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        .close:hover {
-            color: white;
-        }
-        
-        .modal-video {
-            width: 100%;
-            height: 400px;
-            border: none;
-            border-radius: 8极;
-        }
-        
-        /* Signup Modal */
-        .signup-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-        }
-        
-        .signup-content {
-            position: relative;
-            background-color: #0f172a;
-            margin: 5% auto;
-            padding: 40px;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .signup-content h3 {
-            text-align: center;
-            margin-bottom: 24px;
-            font-size: 1.8rem;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-极        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            font-size: 1rem;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
-        
-        .signup-submit {
-            width: 100%;
-            background: linear-gradient(135deg, #3b82f极, #1d4ed8);
-            color: white;
-            padding: 14px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .signup-submit:hover {
-            background: linear-gradient(135deg, #3b82f6, #0066cc);
-            transform: translateY(-2px);
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -946,6 +836,7 @@
                 max-width: 100%;
                 aspect-ratio: 9/16;
                 height: auto;
+                padding: 8px;
             }
             
             .use-cases-grid {
@@ -967,17 +858,6 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 32px;
             }
-            
-            .modal-content,
-            .signup-content {
-                width: 95%;
-                margin: 10% auto;
-                padding: 20px;
-            }
-            
-            .modal-video {
-                height: 300px;
-            }
         }
     </style>
 </head>
@@ -987,7 +867,7 @@
         <div class="nav">
             <div class="logo-container">
                 <div class="logo-icon">
-                    <img src="https://github.com/Searchohis/Fxdetective/raw/main/82270C1F-4极3C-459B-B307-A18AF410E6F0.PNG" alt="Search Alpha Logo">
+                    <img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" alt="Search Alpha Logo">
                 </div>
                 <div class="logo">Search Alpha</div>
             </div>
@@ -998,13 +878,13 @@
                 <a href="#">Learn More</a>
                 <a href="#">Blog</a>
                 <a href="#">New Updates</a>
-                <a href="#" class="get-started" onclick="openSignupModal()">Get Started</a>
+                <a href="#" class="get-started">Get Started</a>
             </div>
             
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
-                <div class="hamburger极line"></div>
+                <div class="hamburger-line"></div>
             </button>
         </div>
     </header>
@@ -1014,8 +894,8 @@
         <a href="#pricing">Pricing</a>
         <a href="#">Learn More</a>
         <a href="#">Blog</a>
-        <极 href="#">New Updates</a>
-        <a href="#" class="get-started" onclick极openSignupModal()">Get Started</a>
+        <a href="#">New Updates</a>
+        <a href="#" class="get-started">Get Started</a>
     </div>
 
     <!-- Hero Section -->
@@ -1025,7 +905,7 @@
             <p class="subtitle">Unleash Search Alpha's power directly in your dashboard. Monitor search presence instantly. Turn complex SEO workflows into a single click. Your brand. Your authority. Your search results, evolving at thought speed.</p>
             
             <div class="hero-cta-container">
-                <button class="hero-cta-button" onclick="openSignupModal()">Start building</button>
+                <button class="hero-cta-button">Start building</button>
                 <div class="product-intelligence-badge">
                     <span class="badge-text"><strong>New:</strong> Product Intelligence</span>
                     <span class="badge-arrow">›</span>
@@ -1047,7 +927,7 @@
                     </div>
                 </div>
                 <div class="case-study-image" id="caseStudyImage">
-                    <img src="https://github.com/Searchohis/Fxdetective/raw/main/IMG_7476.PNG" alt="Before Search Alpha Implementation" id="caseStudyImg" loading="lazy">
+                    <img src="https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true" alt="Before Search Alpha Implementation" id="caseStudyImg">
                 </div>
             </div>
         </div>
@@ -1058,7 +938,7 @@
         <div class="container">
             <h2>Search authority, from concept to conversion</h2>
             <p class="video-description">Watch as Search Alpha tackles unfamiliar brand presence, builds new authority signals, creates monitoring systems, and fixes what's broken—all from your dashboard. See what search optimization feels like when you're not doing it alone.</p>
-            <div class="video-placeholder" onclick="openVideoModal()">
+            <div class="video-placeholder">
                 <div class="play-button">▶</div>
             </div>
         </div>
@@ -1066,7 +946,7 @@
 
     <!-- Features Section -->
     <section class="features-section" id="features">
-        <极 class="container">
+        <div class="container">
             <div class="features-header">
                 <h2>Search authority at dashboard velocity</h2>
                 <p>Search Alpha embeds advanced SEO intelligence right in your dashboard. It has deep search awareness and the ability to monitor and optimize your presence across all major search engines.</p>
@@ -1078,7 +958,7 @@
                     <ul class="feature-list">
                         <li>Uses advanced algorithms to understand your entire search presence without manual setup</li>
                         <li>Makes coordinated optimizations across multiple platforms</li>
-                        <li>Optimized specifically for search authority building and monitoring</极>
+                        <li>Optimized specifically for search authority building and monitoring</li>
                     </ul>
                 </div>
                 
@@ -1122,7 +1002,7 @@
                 </div>
                 
                 <div class="use-case-card">
-                    <h3极Content optimization</h3>
+                    <h3>Content optimization</h3>
                     <p>Search Alpha's understanding of search algorithms and trends enables it to make powerful, multi-platform optimizations that actually improve your rankings.</p>
                 </div>
             </div>
@@ -1164,12 +1044,12 @@
             </div>
             
             <div class="pricing-grid">
-                <div class="极ricing-card">
+                <div class="pricing-card">
                     <h3>Basic</h3>
                     <div class="price">$17</div>
                     <div class="price-period">Per month with annual discount; $200 billed up front. $20 if billed monthly.</div>
                     <div class="description">Perfect for individual creators starting their search authority journey with essential monitoring tools.</div>
-                    <button class="pricing-cta" onclick="openSignupModal()">Get Started</button>
+                    <button class="pricing-cta">Get Started</button>
                 </div>
                 
                 <div class="pricing-card popular">
@@ -1177,7 +1057,7 @@
                     <div class="price">$100</div>
                     <div class="price-period">Per person billed monthly</div>
                     <div class="description">Great value for professionals building comprehensive search presence with advanced analytics and automation.</div>
-                    <button class="pricing-cta" onclick="openSignupModal()">Get Started</button>
+                    <button class="pricing-cta">Get Started</button>
                 </div>
                 
                 <div class="pricing-card">
@@ -1185,7 +1065,7 @@
                     <div class="price">$200</div>
                     <div class="price-period">Per person billed monthly</div>
                     <div class="description">Maximum power for agencies and power users with unlimited access to all advanced features and priority support.</div>
-                    <button class="pricing-cta" onclick="openSignupModal()">Get Started</button>
+                    <button class="pricing-cta">Get Started</button>
                 </div>
             </div>
         </div>
@@ -1197,8 +1077,8 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Product</h4>
-                    <a href="#features">Features</a>
-                    <a href="#pricing">Pricing</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
                     <a href="#">Documentation</a>
                     <a href="#">API</a>
                 </div>
@@ -1234,37 +1114,6 @@
         </div>
     </footer>
 
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeVideoModal()">&times;</span>
-            <iframe class="modal-video" src="about:blank" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="signup-modal"极id="signupModal">
-        <div class="signup-content">
-            <span class="close" onclick="closeSignupModal()">&times;</span>
-            <h3>Get Started with Search Alpha</h3>
-            <form id="signupForm">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required minlength="8">
-                </div>
-                <button type="submit" class="signup-submit">Create Account</button>
-            </form>
-        </div>
-    </div>
-
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
@@ -1284,10 +1133,10 @@
             event.target.classList.add('active');
             
             if (type === 'before') {
-                image.src = 'https://github.com/Searchohis/Fxdetective/raw/main/IMG_7476.PNG';
+                image.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true';
                 image.alt = 'Before Search Alpha Implementation';
             } else {
-                image.src = 'https://github.com/Searchohis/Fxdetective/raw/main/IMG_7477.PNG';
+                image.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7477.PNG?raw=true';
                 image.alt = 'After Search Alpha Implementation';
             }
         }
@@ -1302,77 +1151,6 @@
                 mobileNav.classList.remove('active');
                 mobileToggle.classList.remove('active');
             });
-        });
-        
-        // Video modal functionality
-        function openVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const iframe = modal.querySelector('iframe');
-            
-            // Only set the src when the modal is opened to improve performance
-            iframe.src = iframe.dataset.src;
-            modal.style.display = 'block';
-        }
-        
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const iframe = modal.querySelector('iframe');
-            
-            // Stop the video when modal is closed
-            iframe.src = 'about:blank';
-            modal.style.display = 'none';
-        }
-        
-        // Close modal when clicking outside of it
-        window.addEventListener('click', function(event) {
-            const videoModal = document.getElementById('videoModal');
-            const signupModal = document.getElementById('signupModal');
-            
-            if (event.target === videoModal) {
-                closeVideoModal();
-            }
-            
-            if (event.target === signupModal) {
-                closeSignupModal();
-            }
-        });
-        
-        // Signup modal functionality
-        function openSignupModal() {
-            document.getElementById('signupModal').style.display = 'block';
-        }
-        
-        function closeSignupModal() {
-            document.getElementById('signupModal').style.display = 'none';
-        }
-        
-        // Form submission
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to your server
-            alert('Thank you for signing up! We will be in touch soon.');
-            closeSignupModal();
-        });
-        
-        // Lazy loading for images
-        document.addEventListener('DOMContentLoaded', function() {
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.src;
-                            imageObserver.unobserve(img);
-                        }
-                    });
-                });
-                
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
-            }
         });
     </script>
 </body>
