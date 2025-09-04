@@ -99,7 +99,7 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px; /* Reduced from 12px to 8px */
         }
         
         .logo-icon {
@@ -362,6 +362,14 @@
             margin-bottom: 80px;
         }
         
+        .case-study-text {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
         .case-study-text h2 {
             font-size: 2.5rem;
             font-weight: 600;
@@ -380,18 +388,19 @@
         .segmented-control {
             display: inline-flex;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 4px;
+            border-radius: 12px; /* Increased from 8px to 12px */
+            padding: 6px; /* Increased from 4px to 6px */
             backdrop-filter: blur(10px);
         }
         
         .segment-option {
-            padding: 8px 16px;
+            padding: 12px 24px; /* Increased from 8px 16px to 12px 24px */
             border: none;
             background: transparent;
-            border-radius: 4px;
+            border-radius: 8px; /* Increased from 4px to 8px */
             cursor: pointer;
             font-weight: 500;
+            font-size: 1rem; /* Added explicit font size */
             transition: all 0.2s;
             color: rgba(255, 255, 255, 0.7);
         }
@@ -399,7 +408,7 @@
         .segment-option.active {
             background: rgba(255, 255, 255, 0.15);
             color: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Enhanced shadow */
         }
         
         .case-study-image {
@@ -415,9 +424,11 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced drop shadow */
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .case-study-image img {
@@ -425,6 +436,7 @@
             height: 100%;
             object-fit: cover;
             border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Added drop shadow to the image itself */
         }
         
         /* Video Section */
@@ -916,19 +928,17 @@
 
     <!-- Case Study Section -->
     <section class="case-study-section">
-        <div class="container">
-            <div class="case-study-content">
-                <div class="case-study-text">
-                    <h2>See the transformation</h2>
-                    <p>From basic search visibility to comprehensive authority presence. Watch how Search Alpha elevates your brand's search footprint across all major platforms.</p>
-                    <div class="segmented-control">
-                        <button class="segment-option active" onclick="toggleCaseStudy('before')">Before</button>
-                        <button class="segment-option" onclick="toggleCaseStudy('after')">After</button>
-                    </div>
+        <div class="case-study-content">
+            <div class="case-study-text">
+                <h2>See the transformation</h2>
+                <p>From basic search visibility to comprehensive authority presence. Watch how Search Alpha elevates your brand's search footprint across all major platforms.</p>
+                <div class="segmented-control">
+                    <button class="segment-option active" onclick="toggleCaseStudy('before')">Before</button>
+                    <button class="segment-option" onclick="toggleCaseStudy('after')">After</button>
                 </div>
-                <div class="case-study-image" id="caseStudyImage">
-                    <img src="https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true" alt="Before Search Alpha Implementation" id="caseStudyImg">
-                </div>
+            </div>
+            <div class="case-study-image" id="caseStudyImage">
+                <img src="https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true" alt="Before Search Alpha Implementation" id="caseStudyImg">
             </div>
         </div>
     </section>
