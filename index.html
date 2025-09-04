@@ -262,7 +262,7 @@
         
         /* Hero Section */
         .hero {
-            padding: 180px 0 80px 0;
+            padding: 180px 0 40px 0; /* Reduced bottom padding to move case study closer */
             text-align: center;
             position: relative;
         }
@@ -349,9 +349,9 @@
             opacity: 0.7;
         }
         
-        /* Case Study Section */
+        /* Case Study Section - Moved and Updated */
         .case-study-section {
-            padding: 80px 0;
+            padding: 40px 0 80px 0; /* Reduced top padding to move it closer to hero */
         }
         
         .case-study-content {
@@ -368,6 +368,7 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
+            text-align: center; /* Center align for the new position */
         }
         
         .case-study-text h2 {
@@ -437,6 +438,7 @@
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Added drop shadow to the image itself */
+            transition: opacity 0.3s ease; /* Smooth transition for image changes */
         }
         
         /* Video Section */
@@ -826,7 +828,7 @@
             }
             
             .hero {
-                padding: 140px 0 60px 0;
+                padding: 140px 0 40px 0; /* Adjusted for mobile */
             }
             
             .hero h1 {
@@ -926,12 +928,12 @@
         </div>
     </section>
 
-    <!-- Case Study Section -->
+    <!-- Case Study Section - Moved and Updated -->
     <section class="case-study-section">
         <div class="case-study-content">
             <div class="case-study-text">
-                <h2>See the transformation</h2>
-                <p>From basic search visibility to comprehensive authority presence. Watch how Search Alpha elevates your brand's search footprint across all major platforms.</p>
+                <h2>Build Your Public Reputation</h2>
+                <!-- Removed the paragraph as requested -->
                 <div class="segmented-control">
                     <button class="segment-option active" onclick="toggleCaseStudy('before')">Before</button>
                     <button class="segment-option" onclick="toggleCaseStudy('after')">After</button>
@@ -1125,6 +1127,13 @@
     </footer>
 
     <script>
+        // Preload images for instant switching
+        const beforeImage = new Image();
+        const afterImage = new Image();
+        
+        beforeImage.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true';
+        afterImage.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7477.PNG?raw=true';
+        
         // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
@@ -1134,7 +1143,7 @@
             mobileToggle.classList.toggle('active');
         }
         
-        // Case study toggle
+        // Case study toggle - now instant with preloaded images
         function toggleCaseStudy(type) {
             const image = document.getElementById('caseStudyImg');
             const buttons = document.querySelectorAll('.segment-option');
@@ -1142,13 +1151,20 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
-            if (type === 'before') {
-                image.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true';
-                image.alt = 'Before Search Alpha Implementation';
-            } else {
-                image.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7477.PNG?raw=true';
-                image.alt = 'After Search Alpha Implementation';
-            }
+            // Fade transition for smoother visual effect
+            image.style.opacity = '0';
+            
+            setTimeout(() => {
+                if (type === 'before') {
+                    image.src = beforeImage.src;
+                    image.alt = 'Before Search Alpha Implementation';
+                } else {
+                    image.src = afterImage.src;
+                    image.alt = 'After Search Alpha Implementation';
+                }
+                
+                image.style.opacity = '1';
+            }, 150);
         }
         
         // Close mobile menu when clicking on links
