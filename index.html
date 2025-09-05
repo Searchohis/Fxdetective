@@ -6,6 +6,13 @@
     <title>Search Alpha: Search Authority at Dashboard Speed</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Search Alpha helps you build a big reputation without the big budget. Turn your credibility, notability, and reputation into power.">
+    <meta name="keywords" content="search authority, reputation building, SEO, digital presence">
+    <meta property="og:title" content="Search Alpha: Search Authority at Dashboard Speed">
+    <meta property="og:description" content="Build a big reputation without the big budget with Search Alpha.">
+    <meta property="og:image" content="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         * {
             margin: 0;
@@ -13,10 +20,15 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Roboto, sans-serif;
             line-height: 1.6;
             color: white;
+            background: #020617;
             background: radial-gradient(ellipse at bottom right, #2563eb 0%, #1d4ed8 20%, #1e293b 45%, #0f172a 65%, #020617 85%, #000000 100%);
             font-size: 16px;
             min-height: 100vh;
@@ -32,7 +44,7 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.5) 0%, rgba(29, 78, 216, 0.3) 25%, rgba(15, 23, 42, 0.2) 50%, transparent 75%);
+                radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
@@ -189,6 +201,7 @@
             padding: 8px;
             border-radius: 8px;
             transition: background 0.3s ease;
+            flex-direction: column;
         }
         
         .mobile-menu-toggle:hover {
@@ -295,7 +308,7 @@
             margin-bottom: 40px;
         }
         
-        .hero-cta-button {
+        .unified-button {
             background: rgba(255, 255, 255, 0.9);
             color: #1e293b;
             padding: 16px 32px;
@@ -306,7 +319,6 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            margin-bottom: 24px;
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -314,7 +326,7 @@
             z-index: 2;
         }
         
-        .hero-cta-button:hover {
+        .unified-button:hover {
             background: white;
             transform: translateY(-2px);
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
@@ -342,11 +354,28 @@
         .badge-text {
             font-family: 'Inter', sans-serif;
             font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .badge-arrow {
             font-size: 1.2rem;
             opacity: 0.7;
+        }
+        
+        /* Sparkle Icon */
+        .sparkle-icon {
+            width: 24px;
+            height: 24px;
+            color: #6366f1; /* indigo-500 equivalent */
+            display: inline-block;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-intelligence-badge:hover .sparkle-icon {
+            transform: rotate(15deg) scale(1.1);
         }
         
         /* Whitespace utility class */
@@ -408,12 +437,12 @@
             cursor: pointer;
             font-weight: 500;
             font-size: 1rem;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             color: rgba(255, 255, 255, 0.7);
         }
         
         .segment-option.active {
-            background: rgba(255, 255, 255, 0.15);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
@@ -455,7 +484,7 @@
             object-fit: cover;
             border-radius: 8px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
         }
         
         .case-study-image img:hover {
@@ -754,7 +783,9 @@
         
         .pricing-card.popular {
             border-color: rgba(59, 130, 246, 0.5);
-            background: rgba(59, 130, 246, 0.1);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(29, 78, 216, 0.1));
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
         }
         
         .pricing-card.popular::before {
@@ -763,13 +794,13 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(59, 130, 246, 0.9);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
         
         .pricing-card h3 {
@@ -855,6 +886,23 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
+        /* Browser warning for IE */
+        .browser-warning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ef4444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            z-index: 10000;
+        }
+        .browser-warning a {
+            color: white;
+            text-decoration: underline;
+        }
+        
         /* Responsive */
         @media (max-width: 1024px) {
             .hero h1 {
@@ -873,7 +921,6 @@
             
             .mobile-menu-toggle {
                 display: flex;
-                flex-direction: column;
             }
             
             .hero {
@@ -942,16 +989,27 @@
             .segment-option {
                 margin-bottom: 8px;
             }
+            
+            .sparkle-icon {
+                width: 20px;
+                height: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!--[if IE]>
+    <div class="browser-warning">
+        <p>You are using an outdated browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    </div>
+    <![endif]-->
+
     <!-- Glassmorphism Header -->
     <header class="header glassmorphism">
         <div class="nav">
             <div class="logo-container">
                 <div class="logo-icon">
-                    <img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" alt="Search Alpha Logo">
+                    <img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" alt="Search Alpha Logo" loading="lazy" width="94" height="94">
                 </div>
                 <div class="logo">Search Alpha</div>
             </div>
@@ -965,7 +1023,7 @@
                 <a href="#" class="get-started">Get Started</a>
             </div>
             
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
@@ -993,9 +1051,14 @@
             <p class="subtitle">Attention is everything. At Search Alpha, we turn your credibility, notability, and reputation into power. We make sure you're not just seen, you're unforgettable.</p>
             
             <div class="hero-cta-container">
-                <button class="hero-cta-button">Get Started</button>
+                <button class="unified-button">Get Started</button>
                 <div class="product-intelligence-badge">
-                    <span class="badge-text"><strong>New:</strong> Generative Engine Optimization</span>
+                    <span class="badge-text">
+                        <svg class="sparkle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clip-rule="evenodd" />
+                        </svg>
+                        <strong>New:</strong> Generative Engine Optimization
+                    </span>
                     <span class="badge-arrow">›</span>
                 </div>
             </div>
@@ -1222,9 +1285,11 @@
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
             
             mobileNav.classList.toggle('active');
             mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', !isExpanded);
         }
         
         // Case study toggle - now instant with preloaded images
@@ -1260,6 +1325,24 @@
                 
                 mobileNav.classList.remove('active');
                 mobileToggle.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     </script>
