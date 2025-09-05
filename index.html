@@ -99,7 +99,7 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 4px; /* Reduced from 8px to 4px to move text closer to logo */
+            gap: 4px;
         }
         
         .logo-icon {
@@ -260,15 +260,15 @@
             border-bottom: none;
         }
         
-        /* Hero Section */
+        /* Hero Section - UPDATED */
         .hero {
-            padding: 180px 0 40px 0; /* Reduced bottom padding to move case study closer */
+            padding: 180px 0 40px 0;
             text-align: center;
             position: relative;
         }
         
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.8rem; /* Slightly reduced to ensure two lines */
             font-weight: 700;
             color: white;
             margin-bottom: 24px;
@@ -349,9 +349,14 @@
             opacity: 0.7;
         }
         
+        /* Whitespace utility class */
+        .whitespace-nowrap {
+            white-space: nowrap;
+        }
+        
         /* Case Study Section - Moved and Updated */
         .case-study-section {
-            padding: 40px 0 80px 0; /* Reduced top padding to move it closer to hero */
+            padding: 40px 0 80px 0;
         }
         
         .case-study-content {
@@ -368,11 +373,11 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
-            text-align: center; /* Center align for the new position */
+            text-align: center;
         }
         
         .case-study-text h2 {
-            font-size: 2.2rem; /* Reduced from 2.5rem to 2.2rem */
+            font-size: 2.2rem;
             font-weight: 600;
             color: white;
             margin-bottom: 24px;
@@ -389,21 +394,20 @@
         .segmented-control {
             display: inline-flex;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px; /* Increased from 8px to 12px */
-            padding: 6px; /* Increased from 4px to 6px */
+            border-radius: 12px;
+            padding: 6px;
             backdrop-filter: blur(10px);
-            /* REDUCED MARGIN: Changed from 10px to 5px */
-            margin-top: 5px; 
+            margin-top: 5px; /* Reduced space */
         }
         
         .segment-option {
-            padding: 12px 24px; /* Increased from 8px 16px to 12px 24px */
+            padding: 12px 24px;
             border: none;
             background: transparent;
-            border-radius: 8px; /* Increased from 4px to 8px */
+            border-radius: 8px;
             cursor: pointer;
             font-weight: 500;
-            font-size: 1rem; /* Added explicit font size */
+            font-size: 1rem;
             transition: all 0.2s;
             color: rgba(255, 255, 255, 0.7);
         }
@@ -411,10 +415,10 @@
         .segment-option.active {
             background: rgba(255, 255, 255, 0.15);
             color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3); /* Enhanced shadow */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         
-        /* UPDATED: Case Study Image - Removed glassmorphism, added drop shadow */
+        /* Case Study Image */
         .case-study-image {
             width: 100%;
             max-width: 550px;
@@ -426,23 +430,20 @@
             transition: all 0.3s ease;
             overflow: hidden;
             margin: 0 auto;
-            padding: 0; /* Remove padding */
+            padding: 0;
             position: relative;
             z-index: 1;
-            /* Remove glassmorphism styles */
             background: transparent;
             border: none;
             box-shadow: none;
-            /* REDUCED MARGIN: Changed from 20px to 10px */
-            margin-top: 10px; 
+            margin-top: 10px; /* Reduced space */
         }
         
         .case-study-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px; /* Slightly smaller radius */
-            /* Enhanced drop shadow directly on image */
+            border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
@@ -458,8 +459,7 @@
         }
         
         .video-section h2 {
-            /* REDUCED FONT SIZE: Changed from 2.5rem to 2.3rem */
-            font-size: 2.3rem;
+            font-size: 2.3rem; /* Reduced by ~5px */
             font-weight: 600;
             text-align: center;
             margin-bottom: 24px;
@@ -829,6 +829,12 @@
         }
         
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -840,7 +846,7 @@
             }
             
             .hero {
-                padding: 140px 0 40px 0; /* Adjusted for mobile */
+                padding: 140px 0 40px 0;
             }
             
             .hero h1 {
@@ -882,6 +888,20 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 32px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .video-section h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -926,11 +946,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <!-- UPDATED HERO TEXT: Now on two lines -->
+            <!-- UPDATED: Now properly on two lines with whitespace-nowrap -->
             <h1>
-  <span class="whitespace-nowrap">Build a Big Reputation,</span><br>
-  <span class="whitespace-nowrap">without the Big Budget</span>
-</h1>
+                <span class="whitespace-nowrap">Build a Big Reputation,</span><br>
+                <span class="whitespace-nowrap">without the Big Budget</span>
+            </h1>
             <p class="subtitle">Attention is everything. At Search Alpha, we turn your credibility, notability, and reputation into power. We make sure you're not just seen, you're unforgettable.</p>
             
             <div class="hero-cta-container">
@@ -948,7 +968,6 @@
         <div class="case-study-content">
             <div class="case-study-text">
                 <h2>Build Your Public Reputation</h2>
-                <!-- Removed the paragraph as requested -->
                 <div class="segmented-control">
                     <button class="segment-option active" onclick="toggleCaseStudy('before')">Before</button>
                     <button class="segment-option" onclick="toggleCaseStudy('after')">After</button>
