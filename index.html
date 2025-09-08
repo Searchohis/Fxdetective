@@ -13,7 +13,6 @@
     <meta property="og:image" content="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true">
     <meta property="og:url" content="https://yourwebsite.com">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>">
     <style>
         * {
             margin: 0;
@@ -30,7 +29,7 @@
             line-height: 1.6;
             color: white;
             background: #020617;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #1d4ed8 70%, #3b82f6 100%);
+            background: radial-gradient(ellipse at bottom right, #2563eb 0%, #1d4ed8 20%, #1e293b 45%, #0f172a 65%, #020617 85%, #000000 100%);
             font-size: 16px;
             min-height: 100vh;
             position: relative;
@@ -127,11 +126,6 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        
-        .logo-icon img:hover {
-            transform: scale(1.05);
         }
         
         .logo {
@@ -376,7 +370,7 @@
         .sparkle-icon {
             width: 24px;
             height: 24px;
-            color: #6366f1; /* indigo-5 00 equivalent */
+            color: #6366f1; /* indigo-500 equivalent */
             display: inline-block;
             vertical-align: middle;
             transition: transform 0.3s ease;
@@ -389,158 +383,6 @@
         /* Whitespace utility class */
         .whitespace-nowrap {
             white-space: nowrap;
-        }
-        
-        /* Google Gold Badge Section - UPDATED FOR BETTER VISIBILITY */
-        .gold-badge-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            padding: 4rem 0;
-            margin: 3rem 0;
-            position: relative;
-        }
-
-        @media (min-width: 768px) {
-            .gold-badge-section {
-                flex-direction: row;
-                gap: 3rem;
-            }
-        }
-
-        .gold-badge-container {
-            width: 280px;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            padding: 25px;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3),
-                        0 0 0 2px rgba(255, 255, 255, 0.08) inset,
-                        0 0 30px rgba(255, 215, 0, 0.4),
-                        0 0 40px rgba(59, 130, 246, 0.4);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gold-badge-container::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: radial-gradient(circle at center, 
-                        rgba(255, 215, 0, 0.2) 0%, 
-                        rgba(255, 215, 0, 0.1) 40%,
-                        transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        .gold-badge-container:hover {
-            transform: scale(1.08) translateY(-8px);
-            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4),
-                        0 0 0 3px rgba(255, 255, 255, 0.12) inset,
-                        0 0 40px rgba(255, 215, 0, 0.6),
-                        0 0 50px rgba(59, 130, 246, 0.5);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .gold-badge-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-            transition: all 0.4s ease;
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
-        }
-
-        .gold-badge-container:hover .gold-badge-img {
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7));
-        }
-
-        .gold-badge-text {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4),
-                         0 0 10px rgba(255, 215, 0, 0.4);
-            letter-spacing: 0.5px;
-            text-align: center;
-            position: relative;
-            padding: 0.5rem 1.5rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .gold-badge-text::after {
-            content: '✓';
-            color: #ffd700;
-            margin-left: 10px;
-            font-weight: bold;
-        }
-
-        @media (min-width: 768px) {
-            .gold-badge-text {
-                font-size: 2.4rem;
-            }
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .gold-badge-container {
-                width: 200px;
-                height: 200px;
-                padding: 20px;
-            }
-            
-            .gold-badge-text {
-                font-size: 1.6rem;
-                padding: 0.4rem 1.2rem;
-            }
-            
-            .gold-badge-section {
-                gap: 1.5rem;
-                padding: 3rem 0;
-                margin: 2rem 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gold-badge-container {
-                width: 180px;
-                height: 180px;
-                padding: 18px;
-            }
-            
-            .gold-badge-text {
-                font-size: 1.4rem;
-            }
-            
-            .gold-badge-container::before {
-                top: -5px;
-                left: -5px;
-                right: -5px;
-                bottom: -5px;
-            }
         }
         
         /* Case Study Section - Moved and Updated */
@@ -599,10 +441,6 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .segment-option:hover {
-            background: rgba(255, 255, 255, 0.1);
         }
         
         .segment-option.active {
@@ -775,7 +613,6 @@
         .feature-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
         }
         
         .feature-card h3 {
@@ -839,7 +676,6 @@
         .use-case-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
         }
         
         .use-case-card h3 {
@@ -889,7 +725,6 @@
         .testimonial-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
         }
         
         .testimonial-text {
@@ -946,7 +781,6 @@
         .pricing-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
         }
         
         .pricing-card.popular {
@@ -1013,7 +847,6 @@
         .pricing-cta:hover {
             background: rgba(255, 255, 255, 0.25);
             border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
         }
         
         /* Footer */
@@ -1046,7 +879,6 @@
         
         .footer-section a:hover {
             color: white;
-            transform: translateX(5px);
         }
         
         .footer-bottom {
@@ -1080,10 +912,6 @@
             }
             
             .features-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -1138,7 +966,7 @@
             }
             
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 32px;
             }
         }
@@ -1229,7 +1057,7 @@
                 <div class="product-intelligence-badge">
                     <span class="badge-text">
                         <svg class="sparkle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 01116.5 15z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clip-rule="evenodd" />
                         </svg>
                         <strong>New:</strong> Generative Engine Optimization
                     </span>
@@ -1237,20 +1065,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Google Gold Badge Section - UPDATED WITH CIRCULAR GLASS CONTAINER -->
-    <section class="gold-badge-section">
-        <div class="gold-badge-container">
-            <img 
-                src="https://github.com/Searchohis/Fxdetective/blob/main/Gold%20badge.png?raw=true" 
-                alt="Google Gold Badge" 
-                class="gold-badge-img"
-            />
-        </div>
-        <span class="gold-badge-text">
-            Google Gold Partner
-        </span>
     </section>
 
     <!-- Case Study Section - Moved and Updated -->
@@ -1453,7 +1267,7 @@
                     <a href="#">Cookie Policy</a>
                     <a href="#">GDPR</a>
                 </div>
-            </25px></div>
+            </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2024 Search Alpha. All rights reserved.</p>
@@ -1480,7 +1294,7 @@
             mobileToggle.setAttribute('aria-expanded', !isExpanded);
         }
         
-        // Case study toggle - now with smoother transition
+        // Case study toggle - now instant with preloaded images
         function toggleCaseStudy(type) {
             const image = document.getElementById('caseStudyImg');
             const buttons = document.querySelectorAll('.segment-option');
@@ -1488,8 +1302,7 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
-            // Smooth fade transition
-            image.style.transition = 'opacity 0.3s ease';
+            // Fade transition for smoother visual effect
             image.style.opacity = '0';
             
             setTimeout(() => {
@@ -1502,7 +1315,7 @@
                 }
                 
                 image.style.opacity = '1';
-            }, 300);
+            }, 150);
         }
         
         // Close mobile menu when clicking on links
