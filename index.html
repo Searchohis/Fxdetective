@@ -153,59 +153,68 @@
             color: white;
             transform: translateY(-1px);
         }
-  .gold-badge-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 500;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 2;
-    margin-top: 16px;
+ .gold-badge-badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 16px !important;
 }
 
 .gold-badge-badge:hover {
-    color: white;
-    transform: translateY(-1px);
+    color: white !important;
+    transform: translateY(-1px) !important;
 }
 
 .gold-badge-text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
 }
 
 .gold-badge-icon {
-    width: 60px !important;
-    height: 60px !important;
+    width: 200px !important;
+    height: 200px !important;
+    min-width: 200px !important;
+    min-height: 200px !important;
+    max-width: none !important;
+    max-height: none !important;
     display: inline-block !important;
     vertical-align: middle !important;
     transition: transform 0.3s ease !important;
+    object-fit: contain !important;
 }
 
 .gold-badge-badge:hover .gold-badge-icon {
-    transform: rotate(15deg) scale(1.1);
+    transform: rotate(15deg) scale(1.1) !important;
 }
 
 @media (max-width: 768px) {
     .gold-badge-icon {
-        width: 50px !important;
-        height: 50px !important;
+        width: 80px !important;
+        height: 80px !important;
+        min-width: 80px !important;
+        min-height: 80px !important;
     }
 }
 
 @media (max-width: 480px) {
     .gold-badge-icon {
-        width: 40px !important;
-        height: 40px !important;
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
     }
-}     
+}    
         .nav-links a::after {
             content: '';
             position: absolute;
