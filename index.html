@@ -153,48 +153,59 @@
             color: white;
             transform: translateY(-1px);
         }
-  .gold-badge-container {
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: -107px !important;
-    position: relative !important;
-    z-index: 2 !important;
-    width: 100% !important;
-    height: auto !important;
-    overflow: visible !important;
-    padding: 5px 0 !important;
+  .gold-badge-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    margin-top: 16px;
 }
 
-.gold-badge-image {
-    width: 500px !important;
-    height: auto !important;
-    min-width: 500px !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    display: block !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    border: none !important;
-    background: none !important;
-    box-sizing: content-box !important;
+.gold-badge-badge:hover {
+    color: white;
+    transform: translateY(-1px);
 }
 
-/* Tablets */
+.gold-badge-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gold-badge-icon {
+    width: 60px !important;
+    height: 60px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transition: transform 0.3s ease !important;
+}
+
+.gold-badge-badge:hover .gold-badge-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
 @media (max-width: 768px) {
-    .gold-badge-image {
-        width: 400px !important;
-        min-width: 400px !important;
+    .gold-badge-icon {
+        width: 50px !important;
+        height: 50px !important;
     }
 }
 
-/* Mobile devices */
 @media (max-width: 480px) {
-    .gold-badge-image {
-        width: 380px !important;
-        min-width: 380px !important;
+    .gold-badge-icon {
+        width: 40px !important;
+        height: 40px !important;
     }
-}
-        
+}     
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -1104,11 +1115,14 @@
                     </span>
                     <span class="badge-arrow">›</span>
                 </div>
-                <div class="gold-badge-container">
-                    <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
-                         alt="Gold Badge" 
-                         class="gold-badge-image">
-                </div>
+                <div class="gold-badge-badge">
+    <span class="gold-badge-text">
+        <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
+             alt="Google Gold Badge" 
+             class="gold-badge-icon">
+        Google Gold Badge
+    </span>
+</div>
             </div>
         </div>
     </section>
