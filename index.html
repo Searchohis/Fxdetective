@@ -209,7 +209,8 @@
         height: 250px !important;
         min-width: 250px !important;
         min-height: 250px !important;
-  @media (max-width: 480px) {
+    }  /* ← PROPER CLOSING */
+    
     .gold-badge-badge {
         margin-top: 4px !important;
         align-items: flex-start !important;
@@ -219,7 +220,7 @@
         gap: 1px !important;
         align-items: flex-start !important;
     }
-} 
+} /* ← CLOSES THE ENTIRE MEDIA QUERY */
         .nav-links a::after {
             content: '';
             position: absolute;
