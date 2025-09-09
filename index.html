@@ -153,72 +153,74 @@
             color: white;
             transform: translateY(-1px);
         }
- .gold-badge-badge {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-weight: 500 !important;
-    font-size: 0.9rem !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    position: relative !important;
-    z-index: 2 !important;
-    margin-top: 6px !important;
-}
 
+        /* FIXED GOLD BADGE POSITIONING */
+        .gold-badge-badge {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 4px !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-weight: 500 !important;
+            font-size: 0.9rem !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            z-index: 2 !important;
+            margin-top: -12px !important;
+        }
 
-.gold-badge-text {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 400 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 1px !important;
-}
+        .gold-badge-text {
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 400 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 0px !important;
+        }
 
-.gold-badge-icon {
-    width: 380px !important;
-    height: 380px !important;
-    min-width: 380px !important;
-    min-height: 380px !important;
-    max-width: none !important;
-    max-height: none !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    transition: transform 0.3s ease !important;
-    object-fit: contain !important;
-}
+        .gold-badge-icon {
+            width: 380px !important;
+            height: 380px !important;
+            min-width: 380px !important;
+            min-height: 380px !important;
+            max-width: none !important;
+            max-height: none !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
+            transition: transform 0.3s ease !important;
+            object-fit: contain !important;
+        }
 
-.gold-badge-badge:hover .gold-badge-icon {
-    transform: rotate(15deg) scale(1.1) !important;
-}
+        .gold-badge-badge:hover .gold-badge-icon {
+            transform: rotate(15deg) scale(1.1) !important;
+        }
 
-@media (max-width: 768px) {
-    .gold-badge-icon {
-        width: 140px !important;
-        height: 140px !important;
-        min-width: 140px !important;
-        min-height: 140px !important;
-    }
-}
+        @media (max-width: 768px) {
+            .gold-badge-icon {
+                width: 140px !important;
+                height: 140px !important;
+                min-width: 140px !important;
+                min-height: 140px !important;
+            }
+        }
 
-@media (max-width: 480px) {
-    .gold-badge-icon {
-        width: 250px !important;
-        height: 250px !important;
-        min-width: 250px !important;
-        min-height: 250px !important;
-    }
-    
-    .gold-badge-badge {
-        margin-top: 2px !important;  /* Brings badge closer to text above */
-    }
-    
-    .gold-badge-text {
-        gap: 1px !important;  /* Brings "Google Gold Badge" text very close to image */
-    }
-}
+        @media (max-width: 480px) {
+            .gold-badge-icon {
+                width: 250px !important;
+                height: 250px !important;
+                min-width: 250px !important;
+                min-height: 250px !important;
+            }
+            
+            .gold-badge-badge {
+                margin-top: -18px !important;
+            }
+            
+            .gold-badge-text {
+                gap: 0px !important;
+            }
+        }
+        
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -346,7 +348,7 @@
         }
         
         .hero h1 {
-            font-size: 3.8rem; /* Slightly reduced to ensure two lines */
+            font-size: 3.8rem;
             font-weight: 700;
             color: white;
             margin-bottom: 24px;
@@ -389,7 +391,7 @@
             margin-right: auto;
             position: relative;
             z-index: 2;
-            margin-bottom: 24px; /* Added margin for breathing space */
+            margin-bottom: 24px;
         }
         
         .unified-button:hover {
@@ -410,7 +412,7 @@
             transition: all 0.3s ease;
             position: relative;
             z-index: 2;
-            margin-top: 16px; /* Added margin for breathing space */
+            margin-top: 16px;
         }
         
         .product-intelligence-badge:hover {
@@ -435,7 +437,7 @@
         .sparkle-icon {
             width: 24px;
             height: 24px;
-            color: #6366f1; /* indigo-500 equivalent */
+            color: #6366f1;
             display: inline-block;
             vertical-align: middle;
             transition: transform 0.3s ease;
@@ -589,7 +591,7 @@
         }
         
         .video-section h2 {
-            font-size: 2.3rem; /* Reduced by ~5px */
+            font-size: 2.3rem;
             font-weight: 600;
             text-align: center;
             margin-bottom: 24px;
@@ -617,7 +619,7 @@
         
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -1110,7 +1112,6 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <!-- UPDATED: Now properly on two lines with whitespace-nowrap -->
             <h1>
                 <span class="whitespace-nowrap">Build a Big Reputation,</span><br>
                 <span class="whitespace-nowrap">without the Big Budget</span>
@@ -1129,18 +1130,18 @@
                     <span class="badge-arrow">›</span>
                 </div>
                 <div class="gold-badge-badge">
-    <span class="gold-badge-text">
-        <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
-             alt="Google Gold Badge" 
-             class="gold-badge-icon">
-        Google Gold Badge
-    </span>
-</div>
+                    <span class="gold-badge-text">
+                        <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
+                             alt="Google Gold Badge" 
+                             class="gold-badge-icon">
+                        Google Gold Badge
+                    </span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Study Section - Moved and Updated -->
+    <!-- Case Study Section -->
     <section class="case-study-section">
         <div class="container">
             <div class="case-study-text">
@@ -1165,9 +1166,7 @@
     <!-- Video Section -->
     <section class="video-section">
         <div class="container">
-            <!-- UPDATED HEADING TEXT -->
-            <h2> Dream Big, Leave The Rest To Us</h2>
-            <!-- UPDATED DESCRIPTION TEXT -->
+            <h2>Dream Big, Leave The Rest To Us</h2>
             <p class="video-description">Here's one of over 500+ success stories. We go beyond building credibility, we make your reputation turn into real revenue.</p>
             
             <div class="video-container">
