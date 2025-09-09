@@ -165,7 +165,7 @@
     transition: all 0.3s ease !important;
     position: relative !important;
     z-index: 2 !important;
-    margin-top: 16px !important;
+    margin-top: 6px !important;
 }
 
 
@@ -174,7 +174,7 @@
     font-weight: 400 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 5px !important;
+    gap: 1px !important;
 }
 
 .gold-badge-icon {
@@ -209,8 +209,17 @@
         height: 250px !important;
         min-width: 250px !important;
         min-height: 250px !important;
+  @media (max-width: 480px) {
+    .gold-badge-badge {
+        margin-top: 4px !important;
+        align-items: flex-start !important;
     }
-}    
+    
+    .gold-badge-text {
+        gap: 1px !important;
+        align-items: flex-start !important;
+    }
+} 
         .nav-links a::after {
             content: '';
             position: absolute;
