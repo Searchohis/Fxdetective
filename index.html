@@ -159,12 +159,11 @@
 
 .gold-badge-badge {
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0 !important; /* No gap between image and text */
     margin-top: 10px !important;
     margin-bottom: 20px !important;
+    gap: 15px !important; /* Space between image and text */
 }
 
 .gold-badge-icon {
@@ -174,20 +173,25 @@
     min-height: 380px !important;
     display: block !important;
     object-fit: contain !important;
+    flex-shrink: 0 !important; /* Prevent image from shrinking */
 }
 
 .gold-badge-text {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500 !important;
     color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 0.9rem !important; /* Slightly larger font */
-    margin-top: 5px !important; /* Reduced from large negative value */
-    z-index: 10 !important;
-    text-align: center !important;
+    font-size: 0.9rem !important;
+    text-align: left !important;
+    white-space: nowrap !important; /* Keep text on one line */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .gold-badge-badge {
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+    
     .gold-badge-icon {
         width: 200px !important;
         height: 200px !important;
@@ -197,7 +201,7 @@
     
     .gold-badge-text {
         font-size: 0.8rem !important;
-        margin-top: 3px !important;
+        text-align: center !important;
     }
 }
 
@@ -207,11 +211,6 @@
         height: 250px !important;
         min-width: 250px !important;
         min-height: 250px !important;
-    }
-    
-    .gold-badge-text {
-        font-size: 0.7rem !important;
-        margin-top: 2px !important;
     }
 }
         
