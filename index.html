@@ -157,25 +157,24 @@
             transform: translateY(-1px);
         }
 
-/* OPTION 2: Compact Container */
+/* OPTION 3: Two-Column Layout */
 .gold-badge-badge {
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: -20px !important;
+    gap: 20px !important;
     margin-top: -12px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 20px !important;
+    flex-wrap: wrap !important;
 }
 
 .gold-badge-text {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500 !important;
     color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 0.6rem !important;
-    margin-top: -40px !important;
-    z-index: 10 !important;
-    position: relative !important;
+    font-size: 1.1rem !important;
+    text-align: left !important;
+    line-height: 1.2 !important;
 }
 
 .gold-badge-icon {
@@ -186,7 +185,7 @@
     display: block !important;
     object-fit: contain !important;
     transition: transform 0.3s ease !important;
-    margin-bottom: -20px !important;
+    flex-shrink: 0 !important;
 }
 
 .gold-badge-badge:hover .gold-badge-icon {
@@ -194,6 +193,11 @@
 }
 
 @media (max-width: 768px) {
+    .gold-badge-badge {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
     .gold-badge-icon {
         width: 200px !important;
         height: 200px !important;
@@ -202,7 +206,7 @@
     }
     
     .gold-badge-text {
-        margin-top: -25px !important;
+        text-align: center !important;
     }
 }
         @media (max-width: 480px) {
