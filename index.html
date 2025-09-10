@@ -157,15 +157,30 @@
             transform: translateY(-1px);
         }
 
-/* OPTION 3: Two-Column Layout */
+/* CORRECTED CSS FOR THE GOOGLE GOLD BADGE SECTION */
 .gold-badge-badge {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 20px !important;
-    margin-top: -12px !important;
-    margin-bottom: 20px !important;
+    gap: 40px !important;
+    margin: 40px 0 !important;
     flex-wrap: wrap !important;
+    padding: 0 20px !important;
+}
+
+.gold-badge-icon {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 250px !important;
+    min-height: 250px !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    object-fit: contain !important;
+    transition: transform 0.3s ease !important;
+}
+
+.gold-badge-badge:hover .gold-badge-icon {
+    transform: rotate(15deg) scale(1.1) !important;
 }
 
 .gold-badge-text {
@@ -174,28 +189,14 @@
     color: rgba(255, 255, 255, 0.8) !important;
     font-size: 1.1rem !important;
     text-align: left !important;
-    line-height: 1.2 !important;
-}
-
-.gold-badge-icon {
-    width: 380px !important;
-    height: 380px !important;
-    min-width: 380px !important;
-    min-height: 380px !important;
-    display: block !important;
-    object-fit: contain !important;
-    transition: transform 0.3s ease !important;
-    flex-shrink: 0 !important;
-}
-
-.gold-badge-badge:hover .gold-badge-icon {
-    transform: rotate(15deg) scale(1.1) !important;
+    line-height: 1.4 !important;
+    max-width: 500px !important;
 }
 
 @media (max-width: 768px) {
     .gold-badge-badge {
         flex-direction: column !important;
-        gap: 10px !important;
+        gap: 20px !important;
     }
     
     .gold-badge-icon {
@@ -204,33 +205,21 @@
         min-width: 200px !important;
         min-height: 200px !important;
     }
-    
+
     .gold-badge-text {
         text-align: center !important;
+        font-size: 1rem !important;
     }
 }
-        @media (max-width: 480px) {
-            .gold-badge-icon {
-                width: 250px !important;
-                height: 250px !important;
-                min-width: 250px !important;
-                min-height: 250px !important;
-            }
-            
-            .gold-badge-badge {
-                margin-top: -50px !important;
-                margin-bottom: 0px !important;
-                padding: 0px !important;
-            }
-            
-            .gold-badge-text {
-                gap: 0px !important;
-                margin: 0px !important;
-                padding: 0px !important;
-                line-height: 1 !important;
-            }
-        }
-        
+
+@media (max-width: 480px) {
+    .gold-badge-icon {
+        width: 180px !important;
+        height: 180px !important;
+        min-width: 180px !important;
+        min-height: 180px !important;
+    }
+}
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -1140,13 +1129,13 @@
                     <span class="badge-arrow">›</span>
                 </div>
                 <div class="gold-badge-badge">
-                    <span class="gold-badge-text">
-                        <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
-                             alt="Google Gold Badge" 
-                             class="gold-badge-icon">
-                        Google Gold Badge
-                    </span>
-                </div>
+    <div class="gold-badge-icon">
+        <img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" alt="Google Gold Badge" loading="lazy">
+    </div>
+    <div class="gold-badge-text">
+        <p>Google Gold Badge</p>
+    </div>
+</div>
             </div>
         </div>
     </section>
