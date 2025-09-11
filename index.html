@@ -157,10 +157,11 @@
             transform: translateY(-1px);
         }
 
+/* Updated Gold Badge styling to move text closer to image */
 .gold-badge-badge {
     display: flex !important;
-    justify-content: flex-start !important; /* Change from center to left alignment */
-    margin-left: calc(50% - 190px) !important; /* Center the container but left-align content */
+    justify-content: flex-start !important;
+    margin-left: calc(50% - 190px) !important;
     margin-top: -80px !important;
     margin-bottom: 20px !important;
 }
@@ -170,10 +171,11 @@
     font-weight: 500 !important;
     color: rgba(255, 255, 255, 0.8) !important;
     font-size: 0.6rem !important;
-    margin-top: -30px !important;
+    margin-top: -120px !important; /* Changed from -30px to move closer */
+    margin-left: 40px !important; /* Add left margin to position next to image */
     z-index: 10 !important;
     position: relative !important;
-    text-align: left !important; /* Change to left alignment */
+    text-align: left !important;
     display: flex !important;
     align-items: center !important;
     gap: 0px !important;
@@ -203,32 +205,34 @@
     }
     
     .gold-badge-text {
-        margin-top: -30px !important;
+        margin-top: -60px !important; /* Adjusted for mobile */
+        margin-left: 20px !important; /* Adjusted for mobile */
         justify-content: center !important;
     }
 }
-        @media (max-width: 480px) {
-            .gold-badge-icon {
-                width: 250px !important;
-                height: 250px !important;
-                min-width: 250px !important;
-                min-height: 250px !important;
-            }
-            
-            .gold-badge-badge {
-                margin-top: -50px !important;
-                margin-bottom: 0px !important;
-                padding: 0px !important;
-            }
-            
-            .gold-badge-text {
-                gap: 0px !important;
-                margin: 0px !important;
-                padding: 0px !important;
-                line-height: 1 !important;
-            }
-        }
-        
+
+@media (max-width: 480px) {
+    .gold-badge-icon {
+        width: 250px !important;
+        height: 250px !important;
+        min-width: 250px !important;
+        min-height: 250px !important;
+    }
+    
+    .gold-badge-badge {
+        margin-top: -50px !important;
+        margin-bottom: 0px !important;
+        padding: 0px !important;
+    }
+    
+    .gold-badge-text {
+        margin-top: -80px !important; /* Adjusted for small mobile */
+        margin-left: 15px !important; /* Adjusted for small mobile */
+        gap: 0px !important;
+        padding: 0px !important;
+        line-height: 1 !important;
+    }
+}
         .nav-links a::after {
             content: '';
             position: absolute;
