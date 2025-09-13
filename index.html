@@ -14,8 +14,8 @@
     <meta property="og:url" content="https://yourwebsite.com">
     <meta name="twitter:card" content="summary_large_image">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
     <style>
         * {
             margin: 0;
@@ -73,16 +73,19 @@
             z-index: 1;
         }
         
+        /* Headers use Inter font */
         h1, h2, h3, h4, .logo {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-weight: 600;
         }
         
+        /* Subtitle and description texts use DM Sans */
         .subtitle, .video-description, .features-header p, .case-study-text p, p.description {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-weight: 400;
         }
         
+        /* Glassmorphism Header */
         .glassmorphism {
             background-color: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
@@ -153,6 +156,78 @@
             color: white;
             transform: translateY(-1px);
         }
+
+.gold-badge-badge {
+    display: flex !important;
+    justify-content: flex-start !important; /* Change from center to left alignment */
+    margin-left: calc(50% - 190px) !important; /* Center the container but left-align content */
+    margin-top: -80px !important;
+    margin-bottom: 20px !important;
+}
+
+.gold-badge-text {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.6rem !important;
+    margin-top: -30px !important;
+    z-index: 10 !important;
+    position: relative !important;
+    text-align: left !important; /* Change to left alignment */
+    display: flex !important;
+    align-items: center !important;
+    gap: 0px !important;
+}
+
+.gold-badge-icon {
+    width: 380px !important;
+    height: 380px !important;
+    min-width: 380px !important;
+    min-height: 380px !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+/* Adjust positioning for smaller screens */
+@media (max-width: 768px) {
+    .gold-badge-badge {
+        justify-content: center !important;
+        margin-left: 0 !important;
+    }
+    
+    .gold-badge-icon {
+        width: 200px !important;
+        height: 200px !important;
+        min-width: 200px !important;
+        min-height: 200px !important;
+    }
+    
+    .gold-badge-text {
+        margin-top: -30px !important;
+        justify-content: center !important;
+    }
+}
+        @media (max-width: 480px) {
+            .gold-badge-icon {
+                width: 250px !important;
+                height: 250px !important;
+                min-width: 250px !important;
+                min-height: 250px !important;
+            }
+            
+            .gold-badge-badge {
+                margin-top: -50px !important;
+                margin-bottom: 0px !important;
+                padding: 0px !important;
+            }
+            
+            .gold-badge-text {
+                gap: 0px !important;
+                margin: 0px !important;
+                padding: 0px !important;
+                line-height: 1 !important;
+            }
+        }
         
         .nav-links a::after {
             content: '';
@@ -190,6 +265,7 @@
             display: none;
         }
         
+        /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -272,8 +348,9 @@
             border-bottom: none;
         }
         
+        /* Hero Section - UPDATED */
         .hero {
-            padding: 180px 0 60px 0;
+            padding: 180px 0 40px 0;
             text-align: center;
             position: relative;
         }
@@ -364,6 +441,7 @@
             opacity: 0.7;
         }
         
+        /* Sparkle Icon */
         .sparkle-icon {
             width: 24px;
             height: 24px;
@@ -377,129 +455,14 @@
             transform: rotate(15deg) scale(1.1);
         }
         
+        /* Whitespace utility class */
         .whitespace-nowrap {
             white-space: nowrap;
         }
-
-        /* Gold Badge Showcase - NEW DEDICATED SECTION */
-        .gold-badge-showcase {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin: 60px auto 40px auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-        }
-
-        .gold-badge-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gold-badge-container:hover {
-            transform: translateY(-4px);
-            box-shadow: 
-                0 32px 64px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-
-        .gold-badge-main {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .gold-badge-image-wrapper {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .gold-badge-image-large {
-            width: 380px;
-            height: 380px;
-            object-fit: contain;
-            border-radius: 20px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.25),
-                0 8px 16px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .gold-badge-container:hover .gold-badge-image-large {
-            transform: scale(1.02) rotate(1deg);
-            box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.3),
-                0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .gold-badge-content-large {
-            max-width: 280px;
-            padding-left: 20px;
-        }
-
-        .gold-badge-title-large {
-            font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 0 12px 0;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        .gold-badge-subtitle-large {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.8);
-            margin: 0 0 16px 0;
-            line-height: 1.4;
-        }
-
-        .gold-badge-verified-large {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 20px;
-            padding: 8px 16px;
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: rgba(34, 197, 94, 0.95);
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .verification-icon-large {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
         
+        /* Case Study Section - Moved and Updated */
         .case-study-section {
-            padding: 80px 0 40px 0;
+            padding: 40px 0 40px 0;
             text-align: center;
         }
         
@@ -561,6 +524,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         
+        /* Case Study Image with Glassmorphism Container */
         .case-study-image-container {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
@@ -605,6 +569,7 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4);
         }
         
+        /* See More Button */
         .see-more-button {
             background: rgba(255, 255, 255, 0.9);
             color: #1e293b;
@@ -628,6 +593,7 @@
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
         }
         
+        /* Video Section */
         .video-section {
             padding: 80px 0;
         }
@@ -676,6 +642,7 @@
             border-radius: 12px;
         }
         
+        /* Features Section */
         .features-section {
             padding: 100px 0;
         }
@@ -749,6 +716,7 @@
             color: white;
         }
         
+        /* Use Cases Section */
         .use-cases-section {
             padding: 100px 0;
         }
@@ -797,6 +765,7 @@
             line-height: 1.6;
         }
         
+        /* Testimonials Section */
         .testimonials-section {
             padding: 100px 0;
         }
@@ -851,6 +820,7 @@
             font-size: 0.9rem;
         }
         
+        /* Pricing Section */
         .pricing-section {
             padding: 100px 0;
         }
@@ -954,6 +924,7 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
         
+        /* Footer */
         .footer {
             color: white;
             padding: 80px 0 40px 0;
@@ -992,6 +963,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
+        /* Browser warning for IE */
         .browser-warning {
             position: fixed;
             top: 0;
@@ -1007,41 +979,11 @@
             color: white;
             text-decoration: underline;
         }
-
-        /* Responsive Design */
+        
+        /* Responsive */
         @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 3.2rem;
-            }
-            
-            .gold-badge-showcase {
-                margin: 40px auto 30px auto;
-            }
-            
-            .gold-badge-container {
-                padding: 30px;
-            }
-            
-            .gold-badge-main {
-                gap: 24px;
-            }
-            
-            .gold-badge-image-large {
-                width: 300px;
-                height: 300px;
-            }
-            
-            .gold-badge-content-large {
-                max-width: 240px;
-                padding-left: 16px;
-            }
-            
-            .gold-badge-title-large {
-                font-size: 1.75rem;
-            }
-            
-            .gold-badge-subtitle-large {
-                font-size: 1rem;
             }
             
             .features-grid {
@@ -1064,26 +1006,6 @@
             
             .hero h1 {
                 font-size: 2.5rem;
-            }
-            
-            .gold-badge-main {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .gold-badge-image-large {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .gold-badge-content-large {
-                max-width: 100%;
-                padding-left: 0;
-            }
-            
-            .gold-badge-container {
-                padding: 24px;
             }
             
             .features-grid {
@@ -1149,24 +1071,6 @@
                 width: 20px;
                 height: 20px;
             }
-            
-            .gold-badge-container {
-                padding: 20px;
-                margin: 0 10px;
-            }
-            
-            .gold-badge-image-large {
-                width: 240px;
-                height: 240px;
-            }
-            
-            .gold-badge-title-large {
-                font-size: 1.5rem;
-            }
-            
-            .gold-badge-subtitle-large {
-                font-size: 0.95rem;
-            }
         }
     </style>
 </head>
@@ -1177,6 +1081,7 @@
     </div>
     <![endif]-->
 
+    <!-- Glassmorphism Header -->
     <header class="header glassmorphism">
         <div class="nav">
             <div class="logo-container">
@@ -1212,6 +1117,7 @@
         <a href="#" class="get-started">Get Started</a>
     </div>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>
@@ -1231,34 +1137,19 @@
                     </span>
                     <span class="badge-arrow">›</span>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="gold-badge-showcase">
-        <div class="gold-badge-container">
-            <div class="gold-badge-main">
-                <div class="gold-badge-image-wrapper">
-                    <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
-                         alt="Google Gold Badge" 
-                         class="gold-badge-image-large"
-                         loading="lazy">
-                </div>
-                <div class="gold-badge-content-large">
-                    <h3 class="gold-badge-title-large">Google Gold Badge</h3>
-                    <p class="gold-badge-subtitle-large">Certified Premier Partner with proven expertise in search optimization and digital marketing excellence.</p>
-                    
-                    <div class="gold-badge-verified-large">
-                        <svg class="verification-icon-large" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
-                        Google Verified
-                    </div>
+                <div class="gold-badge-badge">
+                    <span class="gold-badge-text">
+                        <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
+                             alt="Google Gold Badge" 
+                             class="gold-badge-icon">
+                        Google Gold Badge
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Case Study Section -->
     <section class="case-study-section">
         <div class="container">
             <div class="case-study-text">
@@ -1280,6 +1171,7 @@
         </div>
     </section>
 
+    <!-- Video Section -->
     <section class="video-section">
         <div class="container">
             <h2>Dream Big, Leave The Rest To Us</h2>
@@ -1293,6 +1185,7 @@
         </div>
     </section>
 
+    <!-- Features Section -->
     <section class="features-section" id="features">
         <div class="container">
             <div class="features-header">
@@ -1331,6 +1224,7 @@
         </div>
     </section>
 
+    <!-- Use Cases Section -->
     <section class="use-cases-section">
         <div class="container">
             <div class="use-cases-header">
@@ -1356,6 +1250,7 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
             <div class="testimonials-header">
@@ -1382,6 +1277,7 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
     <section class="pricing-section" id="pricing">
         <div class="container">
             <div class="pricing-header">
@@ -1416,6 +1312,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1459,12 +1356,14 @@
     </footer>
 
     <script>
+        // Preload images for instant switching
         const beforeImage = new Image();
         const afterImage = new Image();
         
         beforeImage.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true';
         afterImage.src = 'https://github.com/Searchohis/Fxdetective/blob/main/IMG_7477.PNG?raw=true';
         
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             const mobileToggle = document.querySelector('.mobile-menu-toggle');
@@ -1475,6 +1374,7 @@
             mobileToggle.setAttribute('aria-expanded', !isExpanded);
         }
         
+        // Case study toggle - now instant with preloaded images
         function toggleCaseStudy(type) {
             const image = document.getElementById('caseStudyImg');
             const buttons = document.querySelectorAll('.segment-option');
@@ -1482,6 +1382,7 @@
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             
+            // Fade transition for smoother visual effect
             image.style.opacity = '0';
             
             setTimeout(() => {
@@ -1497,6 +1398,7 @@
             }, 150);
         }
         
+        // Close mobile menu when clicking on links
         const mobileLinks = document.querySelectorAll('.mobile-nav a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -1509,6 +1411,7 @@
             });
         });
         
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
