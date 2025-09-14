@@ -157,58 +157,6 @@
             transform: translateY(-1px);
         }
 
-
-
-.gold-badge-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.gold-badge-icon {
-    width: 380px;
-    height: 380px;
-    object-fit: contain;
-    display: block;
-}
-
-.gold-badge-text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    margin-top: 5px;
-    text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .gold-badge-icon {
-        width: 280px;
-        height: 280px;
-    }
-    
-    .gold-badge-text {
-        font-size: 1rem;
-        margin-top: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .gold-badge-icon {
-        width: 220px;
-        height: 220px;
-    }
-    
-    .gold-badge-text {
-        font-size: 0.9rem;
-        margin-top: 10px;
-    }
-}
-
-        
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -330,7 +278,7 @@
         
         /* Hero Section - UPDATED */
         .hero {
-            padding: 180px 0 40px 0;
+            padding: 180px 0 20px 0;
             text-align: center;
             position: relative;
         }
@@ -360,7 +308,7 @@
         .hero-cta-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         
         .unified-button {
@@ -421,6 +369,30 @@
             opacity: 0.7;
         }
         
+        /* NEW: Gold Badge Line */
+        .gold-badge-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .gold-badge-line:hover {
+            color: white;
+        }
+        
+        .gold-badge-small {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        
         /* Sparkle Icon */
         .sparkle-icon {
             width: 24px;
@@ -442,7 +414,7 @@
         
         /* Case Study Section - Moved and Updated */
         .case-study-section {
-            padding: 40px 0 40px 0;
+            padding: 20px 0 40px 0;
             text-align: center;
         }
         
@@ -943,6 +915,68 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
+        /* NEW: Gold Badge Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .gold-badge-modal {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-badge-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
         /* Browser warning for IE */
         .browser-warning {
             position: fixed;
@@ -981,7 +1015,7 @@
             }
             
             .hero {
-                padding: 140px 0 40px 0;
+                padding: 140px 0 20px 0;
             }
             
             .hero h1 {
@@ -1117,15 +1151,28 @@
                     </span>
                     <span class="badge-arrow">›</span>
                 </div>
-                <div class="gold-badge-container">
-    <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
-         alt="Google Gold Badge" 
-         class="gold-badge-icon">
-    <div class="gold-badge-text">Google Gold Badge</div>
-</div>
+                
+                <!-- NEW: Google Gold Badge Line -->
+                <div class="gold-badge-line" onclick="showGoldBadgeModal()">
+                    <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
+                         alt="Google Gold Badge" 
+                         class="gold-badge-small">
+                    <span class="badge-text">Google Gold Badge 2023</span>
+                    <span class="badge-arrow">›</span>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- NEW: Gold Badge Modal -->
+    <div class="modal-overlay" id="goldBadgeModal" onclick="closeGoldBadgeModal()">
+        <div class="gold-badge-modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeGoldBadgeModal()">×</button>
+            <img src="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png" 
+                 alt="Google Gold Badge" 
+                 class="modal-badge-image">
+        </div>
+    </div>
 
     <!-- Case Study Section -->
     <section class="case-study-section">
@@ -1375,6 +1422,24 @@
                 image.style.opacity = '1';
             }, 150);
         }
+        
+        // NEW: Gold Badge Modal Functions
+        function showGoldBadgeModal() {
+            document.getElementById('goldBadgeModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+        
+        function closeGoldBadgeModal() {
+            document.getElementById('goldBadgeModal').classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+        
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeGoldBadgeModal();
+            }
+        });
         
         // Close mobile menu when clicking on links
         const mobileLinks = document.querySelectorAll('.mobile-nav a');
