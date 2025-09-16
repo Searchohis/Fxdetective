@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Alpha: Search Authority at Dashboard Speed</title>
+    <link rel="preload" as="image" href="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true">
+    <link rel="preload" as="image" href="https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true">
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/Searchohis/Fxdetective/refs/heads/main/Gold%20badge.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://github.com">
@@ -106,6 +109,16 @@
             padding: 12px 24px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+         img {
+        content-visibility: auto;
+    }
+
+    /* Critical images should load first */
+    .logo-icon img,
+    .case-study-image img,
+    .gold-badge-small {
+        content-visibility: visible;
+    }
         
         .nav {
             display: flex;
@@ -1125,7 +1138,13 @@
         <div class="nav">
           <div class="logo-container">
     <div class="logo-icon">
-        <img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" alt="Search Alpha Logo" loading="eager" width="94" height="94" decoding="async">
+<img src="https://github.com/Searchohis/Fxdetective/blob/main/82270C1F-4F3C-459B-B307-A18AF410E6F0.PNG?raw=true" 
+     alt="Search Alpha Logo" 
+     loading="eager" 
+     fetchpriority="high"
+     width="94" 
+     height="94" 
+     decoding="sync">
     </div>
     <div class="logo">Search Alpha</div>
 </div>
@@ -1213,7 +1232,15 @@
             
             <div class="case-study-image-container">
                 <div class="case-study-image" id="caseStudyImage">
-<img src="https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true" alt="Before Search Alpha Implementation" id="caseStudyImg" loading="lazy" width="550" height="978" decoding="async">                </div>
+<img src="https://github.com/Searchohis/Fxdetective/blob/main/IMG_7476.PNG?raw=true" 
+     alt="Before Search Alpha Implementation" 
+     id="caseStudyImg" 
+     loading="eager"
+     fetchpriority="high" 
+     width="550" 
+     height="978" 
+     decoding="sync">
+                </div>
             </div>
             
             <button class="see-more-button">See More</button>
