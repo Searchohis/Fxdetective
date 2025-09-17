@@ -294,7 +294,7 @@
         
         /* Hero Section - UPDATED */
         .hero {
-            padding: 180px 0 100px 0;
+            padding: 250px 0 100px 0;
             text-align: center;
             position: relative;
         }
@@ -303,7 +303,7 @@
             font-size: 3.8rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 24px;
+            margin-bottom: 35px;
             line-height: 1.1;
             letter-spacing: -0.02em;
             position: relative;
@@ -390,7 +390,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 1px;
             margin-top: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -403,11 +403,38 @@
             color: white;
         }
         
-        .gold-badge-small {
-            width: 96px;
-            height: 96px;
-            object-fit: contain;
-        }
+       .gold-badge-small {
+    width: 144px; /* 96px * 1.5 = 144px */
+    height: 144px;
+    object-fit: contain;
+}
+
+/* Tablet */
+/* Tablet */
+@media (max-width: 1024px) {
+    .gold-badge-small {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .gold-badge-small {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .gold-badge-small {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+}
         
         /* Sparkle Icon */
         .sparkle-icon {
@@ -443,7 +470,7 @@
         
         .case-study-text {
             max-width: 1200px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 8px auto;
             padding: 0 20px;
             position: relative;
             z-index: 1;
@@ -471,7 +498,7 @@
             border-radius: 12px;
             padding: 6px;
             backdrop-filter: blur(10px);
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
         
         .segment-option {
@@ -503,6 +530,7 @@
             display: inline-block;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
+            margin-top: 8px;
         }
         
         .case-study-image {
@@ -546,7 +574,7 @@
             border-radius: 12px;
             font-weight: 600;
             font-size: 1.1rem;
-            cursor: should;
+            cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             display: block;
@@ -931,68 +959,112 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
-        /* NEW: Gold Badge Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .gold-badge-modal {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 30px;
-            max-width: 90vw;
-            max-height: 90vh;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .modal-badge-image {
-            max-width: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-        }
-        
+      /* NEW: Gold Badge Modal - UPDATED */
+/* NEW: Gold Badge Modal */
+/* NEW: Gold Badge Modal - UPDATED */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gold-badge-modal {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 98vw;
+    max-height: 98vh;
+    width: auto;
+    height: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-size: 1.5rem;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-badge-image {
+    max-width: 1200px;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+        .modal-overlay.active .gold-badge-modal {
+    transform: scale(1);
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 1400px) {
+    .modal-badge-image {
+        max-width: 92vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .gold-badge-modal {
+        padding: 15px; /* Reduced from 20px */
+    }
+    
+    .modal-badge-image {
+        max-width: 96vw; /* Increased from 95vw */
+        max-height: 85vh; /* Increased from 80vh */
+    }
+    
+    .modal-close {
+        top: 8px; /* Adjusted position */
+        right: 8px;
+        width: 35px;
+        height: 35px;
+    }
+}
+/* Browser warning for IE */
+
         /* Browser warning for IE */
         .browser-warning {
             position: fixed;
@@ -1019,12 +1091,7 @@
             .features-grid {
                 grid-template-columns: 1fr 1fr;
             }
-            
-            /* Tablet gold badge size */
-            .gold-badge-small {
-                width: 60px;
-                height: 60px;
-            }
+                      
         }
         
         @media (max-width: 768px) {
@@ -1082,10 +1149,7 @@
             }
             
             /* Mobile gold badge size */
-            .gold-badge-small {
-                width: 36px;
-                height: 36px;
-            }
+            
             
             /* Fixed segmented control for mobile */
             .segmented-control {
