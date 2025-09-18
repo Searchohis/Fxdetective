@@ -396,40 +396,49 @@
     height: 192px; /* Increased from 144px */
     object-fit: contain;
 }
-       .gold-badge-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 3px; /* No gap between items */
-           margin-top: 12px; /* Add this back */
-    cursor: pointer; /* Add this back */
-    transition: all 0.3s ease; /* Add this back */
-    color: rgba(255, 255, 255, 0.8); /* Add this back */
-    font-weight: 500; /* Add this back */
-    font-size: 0.9rem; /* Add this back */
-}
+      .gold-badge-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      font-size: 0.9rem;
+  }
 
-.gold-badge-line img.gold-badge-small {
-    margin-right: -35px; /* Negative margin to pull text closer */
-}
+  .gold-badge-small {
+      width: 192px;
+      height: 192px;
+      object-fit: contain;
+  }
 
-.gold-badge-line .badge-text {
-    margin-left: -17px;
-    gap: 2px;/* Pull text even closer to the image */
-}
-/* Fix for desktop - adjust spacing for larger screens */
-@media (min-width: 769px) {
-    .gold-badge-line {
-        margin-top: 8px; /* Reduced top margin for desktop */
-    }
-    
-    .gold-badge-line img.gold-badge-small {
-        margin-right: -20px; /* Less negative margin on desktop */
-    }
-    
-    .gold-badge-line .badge-text {
-        margin-left: -8px; /* Less negative margin on desktop */
-    }
-}
+  /* Default styles (for mobile) */
+  .gold-badge-line img.gold-badge-small {
+      margin-right: -28px; /* Restore original mobile value */
+  }
+
+  .gold-badge-line .badge-text {
+      margin-left: -12px; /* Restore original mobile value */
+      gap: 2px;
+  }
+
+  /* Fix for desktop - adjust spacing for larger screens */
+  @media (min-width: 769px) {
+      .gold-badge-line {
+          margin-top: 8px; /* Reduced top margin for desktop */
+      }
+      
+      .gold-badge-line img.gold-badge-small {
+          margin-right: -20px; /* Less negative margin on desktop */
+      }
+      
+      .gold-badge-line .badge-text {
+          margin-left: -8px; /* Less negative margin on desktop */
+      }
+  }
+
 @media (max-width: 1024px) {
     .gold-badge-small {
         width: 160px; /* Increased from 120px */
