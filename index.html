@@ -416,9 +416,20 @@
     margin-left: -12px;
     gap: 2px;/* Pull text even closer to the image */
 }
-/* Tablet */
-/* Tablet */
-/* Tablet */
+/* Fix for desktop - adjust spacing for larger screens */
+@media (min-width: 769px) {
+    .gold-badge-line {
+        margin-top: 8px; /* Reduced top margin for desktop */
+    }
+    
+    .gold-badge-line img.gold-badge-small {
+        margin-right: -20px; /* Less negative margin on desktop */
+    }
+    
+    .gold-badge-line .badge-text {
+        margin-left: -8px; /* Less negative margin on desktop */
+    }
+}
 @media (max-width: 1024px) {
     .gold-badge-small {
         width: 160px; /* Increased from 120px */
