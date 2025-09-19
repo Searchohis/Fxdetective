@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://github.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="description" content="Search Alpha helps you build a big reputation without the big budget. Turn your credibility, notability, and reputation into power.">
     <meta name="keywords" content="search authority, reputation building, SEO, digital presence">
     <meta property="og:title" content="Search Alpha: Search Authority at Dashboard Speed">
@@ -20,8 +20,8 @@
     <meta property="og:url" content="https://yourwebsite.com">
     <meta name="twitter:card" content="summary_large_image">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <style>
         * {
             margin: 0;
@@ -109,16 +109,17 @@
             padding: 12px 24px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-         img {
-        content-visibility: auto;
-    }
+        
+        img {
+            content-visibility: auto;
+        }
 
-    /* Critical images should load first */
-    .logo-icon img,
-    .case-study-image img,
-    .gold-badge-small {
-        content-visibility: visible;
-    }
+        /* Critical images should load first */
+        .logo-icon img,
+        .case-study-image img,
+        .gold-badge-small {
+            content-visibility: visible;
+        }
         
         .nav {
             display: flex;
@@ -233,6 +234,205 @@
             background: white;
             margin: 3px 0;
             transition: all 0.3s ease;
+        }
+        
+        /* Glass Card Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            grid-column: 1 / -1;
+        }
+
+        .glass-card .image-container {
+            flex: 0 0 45%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .glass-card .image-container img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .glass-card:hover .image-container img {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card .glass-card-content {
+            flex: 0 0 55%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .glass-card .glass-card-content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .glass-card .glass-card-content p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .read-more {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        /* Modal Styles */
+        .info-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .info-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .info-modal-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .info-modal-overlay.active .info-modal-content {
+            transform: scale(1);
+        }
+
+        .info-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .info-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .info-modal-header {
+            margin-bottom: 25px;
+        }
+
+        .info-modal-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .info-modal-body {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .info-modal-body p {
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Design for Glass Card */
+        @media (max-width: 968px) {
+            .glass-card {
+                flex-direction: column;
+            }
+            
+            .glass-card .image-container {
+                padding: 40px 40px 20px 40px;
+            }
+            
+            .glass-card .image-container img {
+                max-width: 380px;
+            }
+            
+            .glass-card .glass-card-content {
+                padding: 30px 40px 40px 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .glass-card .image-container {
+                padding: 30px 30px 15px 30px;
+            }
+            
+            .glass-card .glass-card-content {
+                padding: 25px 30px 30px 30px;
+            }
+            
+            .glass-card .glass-card-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .glass-card .glass-card-content p {
+                font-size: 1rem;
+            }
         }
         
         .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
@@ -391,78 +591,73 @@
             color: white;
         }
         
-     .gold-badge-small {
-    width: 192px; /* Increased from 144px */
-    height: 192px; /* Increased from 144px */
-    object-fit: contain;
-}
-      .gold-badge-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      margin-top: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      color: rgba(255, 255, 255, 0.8);
-      font-weight: 500;
-      font-size: 0.9rem;
-  }
+        .gold-badge-small {
+            width: 192px;
+            height: 192px;
+            object-fit: contain;
+        }
+        
+        .gold-badge-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            margin-top: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
 
-  .gold-badge-small {
-      width: 192px;
-      height: 192px;
-      object-fit: contain;
-  }
+        /* Default styles (for mobile) */
+        .gold-badge-line img.gold-badge-small {
+            margin-right: -28px;
+        }
 
-  /* Default styles (for mobile) */
-  .gold-badge-line img.gold-badge-small {
-      margin-right: -28px; /* Restore original mobile value */
-  }
+        .gold-badge-line .badge-text {
+            margin-left: -12px;
+            gap: 2px;
+        }
 
-  .gold-badge-line .badge-text {
-      margin-left: -12px; /* Restore original mobile value */
-      gap: 2px;
-  }
+        /* Fix for desktop - adjust spacing for larger screens */
+        @media (min-width: 769px) {
+            .gold-badge-line {
+                margin-top: 8px;
+            }
+            
+            .gold-badge-line img.gold-badge-small {
+                margin-right: -20px;
+            }
+            
+            .gold-badge-line .badge-text {
+                margin-left: -8px;
+            }
+        }
 
-  /* Fix for desktop - adjust spacing for larger screens */
-  @media (min-width: 769px) {
-      .gold-badge-line {
-          margin-top: 8px; /* Reduced top margin for desktop */
-      }
-      
-      .gold-badge-line img.gold-badge-small {
-          margin-right: -20px; /* Less negative margin on desktop */
-      }
-      
-      .gold-badge-line .badge-text {
-          margin-left: -8px; /* Less negative margin on desktop */
-      }
-  }
+        @media (max-width: 1024px) {
+            .gold-badge-small {
+                width: 160px;
+                height: 160px;
+                object-fit: contain;
+            }
+        }
 
-@media (max-width: 1024px) {
-    .gold-badge-small {
-        width: 160px; /* Increased from 120px */
-        height: 160px; /* Increased from 120px */
-        object-fit: contain;
-    }
-}
+        /* Mobile */
+        @media (max-width: 768px) {
+            .gold-badge-small {
+                width: 100px;
+                height: 100px;
+                object-fit: contain;
+            }
+        }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .gold-badge-small {
-        width: 100px; /* Increased from 80px */
-        height: 100px; /* Increased from 80px */
-        object-fit: contain;
-    }
-}
-
-@media (max-width: 480px) {
-    .gold-badge-small {
-        width: 80px; /* Increased from 60px */
-        height: 80px; /* Increased from 60px */
-        object-fit: contain;
-    }
-}
+        @media (max-width: 480px) {
+            .gold-badge-small {
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+            }
+        }
         
         /* Sparkle Icon */
         .sparkle-icon {
@@ -485,7 +680,7 @@
         
         /* Case Study Section - Moved and Updated */
         .case-study-section {
-            padding: 120px 0 80px 0; /* Increased padding as requested */
+            padding: 120px 0 80px 0;
             text-align: center;
         }
         
@@ -987,112 +1182,110 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
-      /* NEW: Gold Badge Modal - UPDATED */
-/* NEW: Gold Badge Modal */
-/* NEW: Gold Badge Modal - UPDATED */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
+        /* NEW: Gold Badge Modal - UPDATED */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
 
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-.gold-badge-modal {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 10px; /* Reduce padding to give more space for the image */
-    max-width: 98vw;
-    max-height: 98vh;
-    width: auto;
-    height: auto;
-    position: relative;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
-}
+        .gold-badge-modal {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 10px;
+            max-width: 98vw;
+            max-height: 98vh;
+            width: auto;
+            height: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
 
-.modal-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    font-size: 1.5rem;
-}
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 1.5rem;
+        }
 
-.modal-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-}
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
 
-.modal-badge-image {
-    max-width: 1200px;
-    max-height: none;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-}
+        .modal-badge-image {
+            max-width: 1200px;
+            max-height: none;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
         .modal-overlay.active .gold-badge-modal {
-    transform: scale(1);
-}
+            transform: scale(1);
+        }
 
-/* Responsive adjustments for modal */
-@media (max-width: 1400px) {
-    .modal-badge-image {
-        max-width: 92vw;
-    }
-}
+        /* Responsive adjustments for modal */
+        @media (max-width: 1400px) {
+            .modal-badge-image {
+                max-width: 92vw;
+            }
+        }
 
-@media (max-width: 768px) {
-    .gold-badge-modal {
-        padding: 15px; /* Reduced from 20px */
-    }
-    
-    .modal-badge-image {
-        max-width: 96vw; /* Increased from 95vw */
-        max-height: 85vh; /* Increased from 80vh */
-    }
-    
-    .modal-close {
-        top: 8px; /* Adjusted position */
-        right: 8px;
-        width: 35px;
-        height: 35px;
-    }
-}
-/* Browser warning for IE */
-
+        @media (max-width: 768px) {
+            .gold-badge-modal {
+                padding: 15px;
+            }
+            
+            .modal-badge-image {
+                max-width: 96vw;
+                max-height: 85vh;
+            }
+            
+            .modal-close {
+                top: 8px;
+                right: 8px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
         /* Browser warning for IE */
         .browser-warning {
             position: fixed;
@@ -1105,6 +1298,7 @@
             text-align: center;
             z-index: 10000;
         }
+        
         .browser-warning a {
             color: white;
             text-decoration: underline;
@@ -1119,7 +1313,6 @@
             .features-grid {
                 grid-template-columns: 1fr 1fr;
             }
-                      
         }
         
         @media (max-width: 768px) {
@@ -1176,12 +1369,9 @@
                 gap: 32px;
             }
             
-            /* Mobile gold badge size */
-            
-            
             /* Fixed segmented control for mobile */
             .segmented-control {
-                flex-direction: row; /* Changed from column to row */
+                flex-direction: row;
                 width: auto;
                 flex-wrap: nowrap;
             }
@@ -1228,18 +1418,18 @@
     <!-- Glassmorphism Header -->
     <header class="header glassmorphism">
         <div class="nav">
-          <div class="logo-container">
-    <div class="logo-icon">
-<img src="https://res.cloudinary.com/doosocetb/image/upload/v1758068781/82270C1F-4F3C-459B-B307-A18AF410E6F0_jzo23e.png" 
-     alt="Search Alpha Logo" 
-     loading="eager" 
-     fetchpriority="high"
-     width="94" 
-     height="94" 
-     decoding="sync">
-    </div>
-    <div class="logo">Search Alpha</div>
-</div>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <img src="https://res.cloudinary.com/doosocetb/image/upload/v1758068781/82270C1F-4F3C-459B-B307-A18AF410E6F0_jzo23e.png" 
+                         alt="Search Alpha Logo" 
+                         loading="eager" 
+                         fetchpriority="high"
+                         width="94" 
+                         height="94" 
+                         decoding="sync">
+                </div>
+                <div class="logo">Search Alpha</div>
+            </div>
             
             <div class="nav-links">
                 <a href="#features">Features</a>
@@ -1281,7 +1471,7 @@
                 <div class="product-intelligence-badge">
                     <span class="badge-text">
                         <svg class="sparkle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036-.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183-.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clip-rule="evenodd" />
                         </svg>
                         <strong>New:</strong> Generative Search Intelligence
                     </span>
@@ -1318,21 +1508,21 @@
                 <h2>Build Your Public Reputation</h2>
             
                 <div class="segmented-control">
-                    <button class="segment-option active" onclick="toggleCaseStudy('before')">Before</button>
-                    <button class="segment-option" onclick="toggleCaseStudy('after')">After</button>
+                    <button class="segment-option active" onclick="toggleCaseStudy('before', event)">Before</button>
+                    <button class="segment-option" onclick="toggleCaseStudy('after', event)">After</button>
                 </div>
             </div>
             
             <div class="case-study-image-container">
                 <div class="case-study-image" id="caseStudyImage">
-<img src="https://res.cloudinary.com/doosocetb/image/upload/v1758068851/IMG_7476_fw8x1o.png" 
-     alt="Before Search Alpha Implementation" 
-     id="caseStudyImg" 
-     loading="eager"
-     fetchpriority="high" 
-     width="550" 
-     height="978" 
-     decoding="sync">
+                    <img src="https://res.cloudinary.com/doosocetb/image/upload/v1758068851/IMG_7476_fw8x1o.png" 
+                         alt="Before Search Alpha Implementation" 
+                         id="caseStudyImg" 
+                         loading="eager"
+                         fetchpriority="high" 
+                         width="550" 
+                         height="978" 
+                         decoding="sync">
                 </div>
             </div>
             
@@ -1354,8 +1544,8 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section" id="features">
+   <!-- Features Section -->
+   <section class="features-section" id="features">
         <div class="container">
             <div class="features-header">
                 <h2>Search authority at dashboard velocity</h2>
@@ -1363,15 +1553,20 @@
             </div>
             
             <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Powerful intelligence</h3>
-                    <ul class="feature-list">
-                        <li>Uses advanced algorithms to understand your entire search presence without manual setup</li>
-                        <li>Makes coordinated optimizations across multiple platforms</li>
-                        <li>Optimized specifically for search authority building and monitoring</li>
-                    </ul>
+                <!-- New glassmorphism card replacing "Powerful intelligence" -->
+                <div class="glass-card">
+                    <div class="image-container">
+                        <img src="https://res.cloudinary.com/doosocetb/image/upload/v1758202784/24070804_bwink_edu_01_single_02_ksj7p2.jpg"
+                             alt="Woman using Search Alpha product intelligence">
+                    </div>
+                    <div class="glass-card-content">
+                        <h3>Why Music Creatives Choose Us</h3>
+                        <p>The first step to a successful music career isn't just talent, it's recognition.
+                        Sounds surprising? Think about it: even a child can upload a song today and wake up famous tomorrow. What made the difference? They got noticed.. <span class="read-more" onclick="openInfoModal()">(Read More)</span></p>
+                    </div>
                 </div>
                 
+                <!-- Keep the other two existing feature cards -->
                 <div class="feature-card">
                     <h3>Works where you work</h3>
                     <ul class="feature-list">
@@ -1524,6 +1719,22 @@
         </div>
     </footer>
 
+    <!-- Info Modal -->
+    <div class="info-modal-overlay" id="infoModal">
+        <div class="info-modal-content">
+            <button class="info-modal-close" onclick="closeInfoModal()">×</button>
+            <div class="info-modal-header">
+                <h2>Why Music Creatives Choose Us</h2>
+            </div>
+            <div class="info-modal-body">
+                <p>The first step to a successful music career isn't just talent — it's recognition.</p>
+                <p>Sounds surprising? Think about it: even a child can upload a song today and wake up famous tomorrow. What made the difference? They got noticed.</p>
+                <p>Recognition is the spark that turns talent into opportunity. It's what makes fans search for you daily, follow your journey, and remember your name long after the music stops.</p>
+                <p>That's why music creatives choose us, we don't just help you as a music creative, we make sure the world can't ignore it.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Preload images for instant switching
         const beforeImage = new Image();
@@ -1544,7 +1755,7 @@
         }
         
         // Case study toggle - now instant with preloaded images
-        function toggleCaseStudy(type) {
+        function toggleCaseStudy(type, event) {
             const image = document.getElementById('caseStudyImg');
             const buttons = document.querySelectorAll('.segment-option');
             
@@ -1578,10 +1789,29 @@
             document.body.style.overflow = ''; // Re-enable scrolling
         }
         
-        // Close modal when pressing Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
+        // Info Modal Functions
+        function openInfoModal() {
+            document.getElementById('infoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('infoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInfoModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
                 closeGoldBadgeModal();
+                closeInfoModal();
             }
         });
         
