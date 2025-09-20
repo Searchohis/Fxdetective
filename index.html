@@ -188,6 +188,9 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+        .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
         
         .get-started {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8);
@@ -1548,9 +1551,9 @@
    <section class="features-section" id="features">
         <div class="container">
             <div class="features-header">
-                <h2>Search authority at dashboard velocity</h2>
-                <p>Search Alpha embeds advanced SEO intelligence right in your dashboard. It has deep search awareness and the ability to monitor and optimize your presence across all major search engines.</p>
-            </div>
+    <h2>Why Everyone Chooses Us</h2>
+    <!-- REMOVE the paragraph completely -->
+</div>
             
             <div class="features-grid">
                 <!-- New glassmorphism card replacing "Powerful intelligence" -->
@@ -1567,24 +1570,40 @@
                 </div>
                 
                 <!-- Keep the other two existing feature cards -->
-                <div class="feature-card">
-                    <h3>Works where you work</h3>
-                    <ul class="feature-list">
-                        <li>Lives right inside your dashboard—no context switching</li>
-                        <li>Integrates with major platforms and analytics tools</li>
-                        <li>Leverages your existing content and optimization systems</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <h3>You're in control</h3>
-                    <ul class="feature-list">
-                        <li>Never modifies your presence without explicit approval</li>
-                        <li>Adapts to your brand standards and content patterns</li>
-                        <li>Configurable; build custom workflows and automation</li>
-                    </ul>
-                </div>
-            </div>
+                <div class="glass-card">
+    <div class="image-container">
+        <img src="https://res.cloudinary.com/doosocetb/image/upload/v1758277625/bwink_edu_07_single_01_yczo0a.jpg"
+             alt="Search Alpha for Organizations">
+    </div>
+                    <!-- Why Organizations and Brands Choose Us -->
+    <div class="glass-card-content">
+        <h3>Why Organizations and Brands Choose Us</h3>
+        <p>Unless you're a non-profit, every brand or organization has one core aim: to grow and generate revenue. Think about it: would you ever pay for something if you doubted its credibility? Neither will your customers.. <span class="read-more" onclick="openOrganizationsModal()">(Read More)</span></p>
+    </div>
+</div>
+                <!-- Why Professionals Choose Us -->
+                <div class="glass-card">
+    <div class="image-container">
+        <img src="https://res.cloudinary.com/doosocetb/image/upload/v1758277669/bwink_msc_07_single_01_rznx2s.jpg"
+             alt="Search Alpha For Professionals">
+    </div>
+    <div class="glass-card-content">
+        <h3>Why Professionals Choose Us</h3>
+        <p>No matter your niche or industry, the path to securing a better position, landing new clients, or getting that next big opportunity always comes down to one thing, how you stand out from the competition.. <span class="read-more" onclick="openProfessionalsModal()">(Read More)</span></p>
+    </div>
+</div>
+                <!-- Why Developers Choose Us -->
+<div class="glass-card">
+    <div class="image-container">
+        <img src="https://res.cloudinary.com/doosocetb/image/upload/v1758277819/bwink_msc_09_single_05_qde4v0.jpg"
+             alt="Search Alpha For Developers">
+    </div>
+    <div class="glass-card-content">
+        <h3>Why Developers Choose Us</h3>
+        <p>In 2025, full-stack developers have become the backbone of every industry. But with great responsibility comes the pressure to deliver fast, scalable, and standout products.. <span class="read-more" onclick="openDevelopersModal()">(Read More)</span></p>
+    </div>
+</div>
+
         </div>
     </section>
 
@@ -1827,6 +1846,67 @@
                 mobileToggle.setAttribute('aria-expanded', 'false');
             });
         });
+        // Organizations Modal Functions
+function openOrganizationsModal() {
+    document.getElementById('organizations-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeOrganizationsModal() {
+    document.getElementById('organizations-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Professionals Modal Functions
+function openProfessionalsModal() {
+    document.getElementById('professionals-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProfessionalsModal() {
+    document.getElementById('professionals-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Developers Modal Functions
+function openDevelopersModal() {
+    document.getElementById('developers-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDevelopersModal() {
+    document.getElementById('developers-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modals when clicking outside content
+document.getElementById('organizations-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeOrganizationsModal();
+    }
+});
+
+document.getElementById('professionals-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeProfessionalsModal();
+    }
+});
+
+document.getElementById('developers-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeDevelopersModal();
+    }
+});
+
+// Close modals with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeOrganizationsModal();
+        closeProfessionalsModal();
+        closeDevelopersModal();
+        closeInfoModal();
+    }
+});
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1845,5 +1925,52 @@
             });
         });
     </script>
+    <!-- Organizations Modal -->
+<div class="info-modal-overlay" id="organizations-modal">
+    <div class="info-modal-content">
+        <button class="info-modal-close" onclick="closeOrganizationsModal()">×</button>
+        <div class="info-modal-header">
+            <h2>Why Organizations and Brands Choose Us</h2>
+        </div>
+        <div class="info-modal-body">
+            <p>Unless you're a non-profit, every brand or organization has one core aim: to grow and generate revenue.</p>
+            <p>Think about it: would you ever pay for something if you doubted its credibility? Neither will your customers.</p>
+            <p>But growth doesn't happen without trust, credibility, and a proven track record, the three psychological triggers that drive human decision-making. By building your notability with us, your brand becomes the obvious choice in your market, the one that feels safer, more reliable, and more rewarding to engage with.</p>
+            <p>With Search Alpha, organizations and brands move from being "just another option" to becoming the default authority, unlocking faster growth, stronger loyalty, and lasting recognition.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Professionals Modal -->
+<div class="info-modal-overlay" id="professionals-modal">
+    <div class="info-modal-content">
+        <button class="info-modal-close" onclick="closeProfessionalsModal()">×</button>
+        <div class="info-modal-header">
+            <h2>Why Professionals Choose Us</h2>
+        </div>
+        <div class="info-modal-body">
+            <p>No matter your niche or industry, the path to securing a better position, landing new clients, or getting that next big opportunity always comes down to one thing, how you stand out from the competition.</p>
+            <p>With Search Alpha, you don't need to over-explain yourself with long CVs, endless pitch decks, or cold emails that may never be opened.</p>
+            <p>Instead, you gain something more powerful: the ability to say the most persuasive words in today's world, <strong>"LOOK ME UP."</strong></p>
+            <p>When people search your name and find authority, credibility, and recognition on world-class platforms, their brains make the decision for them, you're already validated. It's psychological: we trust what we see, not what we're told. And when your presence is undeniable, opportunities don't just open up, they chase you.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Developers Modal -->
+<div class="info-modal-overlay" id="developers-modal">
+    <div class="info-modal-content">
+        <button class="info-modal-close" onclick="closeDevelopersModal()">×</button>
+        <div class="info-modal-header">
+            <h2>Why Developers Choose Us</h2>
+        </div>
+        <div class="info-modal-body">
+            <p>In 2025, full-stack developers have become the backbone of every industry. But with great responsibility comes the pressure to deliver fast, scalable, and standout products.</p>
+            <p>That's where we come in. At Search Alpha, we provide developers with tools designed for maximum efficiency and minimal complexity, solutions that let you create world-class outcomes with just one or two lines of code.</p>
+            <p>It's not just about saving time, it's about unlocking creativity. By removing the heavy lifting, we free developers to focus on what matters most: building products that stand out and get noticed. And when your work becomes easier to adopt, integrate, and scale, the recognition follows naturally.</p>
+            <p>The psychology is simple: less friction means more adoption, more adoption means more visibility, and visibility means influence. With us, developers don't just code, they build legacies.</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
